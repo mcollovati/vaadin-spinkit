@@ -57,6 +57,7 @@ public class DemoUI extends UI
             componentSpinner.setSpinnerType((SpinnerType) e.getProperty().getValue());
         });
         TextField size = new TextField("Size");
+        size.setNullRepresentation("");
         size.setConverter(new StringToFloatConverter());
         size.addValueChangeListener(e -> {
             try {

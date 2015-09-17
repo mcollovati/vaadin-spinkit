@@ -130,6 +130,7 @@
 							<Vaadin-Package-Version>1</Vaadin-Package-Version>
 							<Vaadin-License-Title>${Vaadin-License-Title}</Vaadin-License-Title>
 							<Vaadin-Widgetsets>org.vaadin.spinkit.WidgetSet</Vaadin-Widgetsets>
+							<Vaadin-Stylesheets>VAADIN/addons/spinkit/spinkit.scss</Vaadin-Stylesheets>
 						</manifestEntries>
 					</archive>
 				</configuration>

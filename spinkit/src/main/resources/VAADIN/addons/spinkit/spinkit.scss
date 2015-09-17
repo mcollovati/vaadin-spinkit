@@ -1,0 +1,26 @@
+@import "../../themes/valo/util/bourbon/bourbon";
+@import "spinners/1-rotating-plane";
+@import "spinners/2-double-bounce";
+@import "spinners/3-wave";
+@import "spinners/4-wandering-cubes";
+@import "spinners/5-pulse";
+@import "spinners/6-chasing-dots";
+@import "spinners/7-three-bounce";
+@import "spinners/8-circle";
+@import "spinners/9-cube-grid";
+@import "spinners/10-fading-circle";
+@import "spinners/11-folding-cube";
+
+@mixin spinkit {
+    @include sk-rotating-plane;
+    @include sk-double-bounce;
+    @include sk-wave;
+    @include sk-wandering-cubes;
+    @include sk-spinner-pulse;
+    @include sk-chasing-dots;
+    @include sk-three-bounce;
+    @include sk-circle;
+    @include sk-cube-grid;
+    @include sk-fading-circle;
+    @include sk-folding-cube;
+}

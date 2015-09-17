@@ -7,9 +7,9 @@ import com.vaadin.ui.Label;
 /**
  * Add-on can be fully server-side (with or without UI components) or have client-side widgets.
  */
-@StyleSheet("spinkit.css")
-public class Spinner extends Label
-{
+//@StyleSheet("spinkit.css")
+//@StyleSheet("vaadin://addons/spinkit/styles.css")
+public class Spinner extends Label {
 
     private SpinnerType spinnerType;
 
@@ -35,7 +35,6 @@ public class Spinner extends Label
         super.setPrimaryStyleName(this.spinnerType.getStyle());
         super.setValue(this.spinnerType.getHtml());
     }
-
 
 
 }
