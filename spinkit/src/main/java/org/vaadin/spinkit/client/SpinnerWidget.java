@@ -6,11 +6,7 @@ import com.google.gwt.user.client.ui.HTML;
 public class SpinnerWidget extends HTML {
 
 	public SpinnerWidget() {
-
-		// CSS class-name should not be v- prefixed
-		setStyleName("spinkit");
-
-		// State is set to widget in MyComponentConnector		
+		setStylePrimaryName("spinkit");
 	}
 
 }

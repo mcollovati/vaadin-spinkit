@@ -1,33 +1,36 @@
 package org.vaadin.spinkit.demo;
 
-import org.vaadin.spinkit.Spinner2;
-import org.vaadin.spinkit.Spinner;
-import org.vaadin.spinkit.SpinnerType;
-
-import javax.servlet.annotation.WebServlet;
-
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
-import com.vaadin.data.util.converter.ConverterUtil;
 import com.vaadin.data.util.converter.StringToFloatConverter;
-import com.vaadin.data.util.converter.StringToIntegerConverter;
+import com.vaadin.data.validator.FloatRangeValidator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Alignment;
+import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
+import org.vaadin.spinkit.Spinner;
+import org.vaadin.spinkit.SpinnerLabel;
+import org.vaadin.spinkit.SpinnerType;
+
 import java.util.Arrays;
+
+import javax.servlet.annotation.WebServlet;
 
 @Theme("demo")
 @Title("MyComponent Add-on Demo")
 @SuppressWarnings("serial")
-public class DemoUI extends UI
-{
+public class DemoUI extends UI {
+
+    private Spinner widgetSpinner;
+    private Spinner widgetSpinnerCustomStyle;
+    private SpinnerLabel labelSpinner;
 
     @WebServlet(value = "/*", asyncSupported = true)
     @VaadinServletConfiguration(productionMode = false, ui = DemoUI.class, widgetset = "org.vaadin.spinkit.demo.DemoWidgetSet")
@@ -40,44 +43,71 @@ public class DemoUI extends UI
         // Initialize our new UI component
 
         SpinnerType initialType = SpinnerType.ROTATING_PLANE;
-        final Spinner2 widgetSpinner = new Spinner2(initialType);
-        final Spinner componentSpinner = new Spinner(initialType);
+        widgetSpinner = new Spinner(initialType);
+        widgetSpinnerCustomStyle = new Spinner(initialType);
+        widgetSpinnerCustomStyle.setPrimaryStyleName("greenspin");
+        labelSpinner = new SpinnerLabel(initialType);
 
         // Show it in the middle of the screen
-        final VerticalLayout layout = new VerticalLayout();
+        final HorizontalLayout layout = new HorizontalLayout();
         layout.setMargin(true);
         layout.setSpacing(true);
-        layout.setStyleName("demoContentLayout");
         layout.setSizeFull();
 
-        ComboBox selector = new ComboBox("Select spinner stype", Arrays.asList(SpinnerType.values()));
+        layout.addComponent(new Label("Spinner"));
+        layout.addComponent(widgetSpinner);
+
+        layout.addComponent(new Label("Spinner (greenspin style)"));
+        layout.addComponent(widgetSpinnerCustomStyle);
+
+        layout.addComponent(new Label("SpinnerLabel"));
+        layout.addComponent(labelSpinner);
+
+
+        VerticalLayout mainLayout = new VerticalLayout();
+        mainLayout.setStyleName("demoContentLayout");
+        mainLayout.setMargin(true);
+        mainLayout.setSpacing(true);
+        mainLayout.setSizeFull();
+        mainLayout.addComponent(createTools(initialType));
+        mainLayout.addComponent(layout);
+        mainLayout.setExpandRatio(layout, 1);
+        setContent(mainLayout);
+    }
+
+    private HorizontalLayout createTools(SpinnerType initialType) {
+        ComboBox selector = new ComboBox("Select spinner type", Arrays.asList(SpinnerType.values()));
+        selector.setNullSelectionAllowed(false);
         selector.setValue(initialType);
         selector.addValueChangeListener(e -> {
             widgetSpinner.setType((SpinnerType) e.getProperty().getValue());
-            componentSpinner.setSpinnerType((SpinnerType) e.getProperty().getValue());
+            widgetSpinnerCustomStyle.setType((SpinnerType) e.getProperty().getValue());
+            labelSpinner.setSpinnerType((SpinnerType) e.getProperty().getValue());
         });
-        TextField size = new TextField("Size");
+        TextField size = new TextField("Size (from 10px to 200px)");
         size.setNullRepresentation("");
+        size.setImmediate(true);
         size.setConverter(new StringToFloatConverter());
+        size.addValidator(new FloatRangeValidator("Size must be between 10px and 200px", 10f, 200f));
         size.addValueChangeListener(e -> {
-            try {
-                widgetSpinner.setWidth((Float)size.getConvertedValue(), Unit.PIXELS);
-                widgetSpinner.setHeight((Float) size.getConvertedValue(), Unit.PIXELS);
-                componentSpinner.setWidth((Float) size.getConvertedValue(), Unit.PIXELS);
-                componentSpinner.setHeight((Float)size.getConvertedValue(), Unit.PIXELS);
-            } catch (Exception ex) {
+            if (size.isValid()) {
+                try {
+                    Float fsize = (Float) size.getConvertedValue();
+                    widgetSpinner.setWidth(fsize, Unit.PIXELS);
+                    widgetSpinner.setHeight(fsize, Unit.PIXELS);
+                    widgetSpinnerCustomStyle.setWidth(fsize, Unit.PIXELS);
+                    widgetSpinnerCustomStyle.setHeight(fsize, Unit.PIXELS);
+                    labelSpinner.setWidth(fsize, Unit.PIXELS);
+                    labelSpinner.setHeight(fsize, Unit.PIXELS);
+                    labelSpinner.setValue("Size is now " + fsize);
+                } catch (Exception ex) {
+                }
             }
         });
 
-        layout.addComponent(selector);
-        layout.addComponent(size);
-
-        layout.addComponent(new Label("Widget"));
-        layout.addComponent(widgetSpinner);
-        layout.addComponent(new Label("Component"));
-        layout.addComponent(componentSpinner);
-        setContent(layout);
-
+        HorizontalLayout topLayout = new HorizontalLayout(selector, size);
+        return topLayout;
     }
+
 
 }

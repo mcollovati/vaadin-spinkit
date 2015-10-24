@@ -32,7 +32,7 @@ public enum SpinnerType {
                         "<div class=\"sk-circle9 sk-circle\"></div><div class=\"sk-circle10 sk-circle\"></div>" +
                         "<div class=\"sk-circle11 sk-circle\"></div><div class=\"sk-circle12 sk-circle\"></div>"),
     FOLDING_CUBE("sk-folding-cube","<div class=\"sk-cube1 sk-cube\"></div><div class=\"sk-cube2 sk-cube\"></div>" +
-                        "<div class=\"sk-cube3 sk-cube\"></div><div class=\"sk-cube4 sk-cube\"></div>");
+                        "<div class=\"sk-cube4 sk-cube\"></div><div class=\"sk-cube3 sk-cube\"></div>");
 
     private final String cssClass;
     private final String html;

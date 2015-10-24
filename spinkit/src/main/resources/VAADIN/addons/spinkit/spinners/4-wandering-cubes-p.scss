@@ -20,6 +20,14 @@ $wandering-cubes-animation-duration: 1.8s !default;
   position: relative;
 
   .sk-cube {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: sk-wanderingCube-xy $animationDuration ease-in-out #{-$animationDuration} infinite both;
+  }
+
+  .sk-cube:before {
+    content: "";2
     background-color: $spinkit-spinner-color;
     width: 10px;
     height: 10px;
@@ -39,16 +47,29 @@ $wandering-cubes-animation-duration: 1.8s !default;
   0% {
     transform: rotate(0deg);
   } 25% {
-    transform: translateX($wandering-cubes-cube-distance) rotate(-90deg) scale(0.5);
+    transform: rotate(-90deg) scale(0.5);
   } 50% {
     /* Hack to make FF rotate in the right direction */
-    transform: translateX($wandering-cubes-cube-distance) translateY($wandering-cubes-cube-distance) rotate(-179deg);
+    transform: rotate(-179deg);
   } 50.1% {
-    transform: translateX($wandering-cubes-cube-distance) translateY($wandering-cubes-cube-distance) rotate(-180deg);
+    transform: rotate(-180deg);
   } 75% {
-    transform: translateX(0) translateY($wandering-cubes-cube-distance) rotate(-270deg) scale(0.5);
+    transform: rotate(-270deg) scale(0.5);
   } 100% {
     transform: rotate(-360deg);
+  }
+}
+
+@include keyframes(sk-wanderingCube-xy) {
+  25% {
+    transform: translateX($wandering-cubes-cube-distance);
+  } 50% {
+    /* Hack to make FF rotate in the right direction */
+    transform: translateX($wandering-cubes-cube-distance) translateY($wandering-cubes-cube-distance);
+  } 50.1% {
+    transform: translateX($wandering-cubes-cube-distance) translateY($wandering-cubes-cube-distance);
+  } 75% {
+    transform: translateX(0) translateY($wandering-cubes-cube-distance);
   }
 }
 

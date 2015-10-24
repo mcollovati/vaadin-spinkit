@@ -1,39 +1,36 @@
 package org.vaadin.spinkit;
 
-import com.vaadin.annotations.StyleSheet;
-import com.vaadin.shared.ui.label.ContentMode;
-import com.vaadin.ui.Label;
+import org.vaadin.spinkit.client.SpinnerState;
 
-/**
- * Add-on can be fully server-side (with or without UI components) or have client-side widgets.
- */
-//@StyleSheet("spinkit.css")
-//@StyleSheet("vaadin://addons/spinkit/styles.css")
-public class Spinner extends Label {
+public class Spinner extends com.vaadin.ui.AbstractComponent {
 
-    private SpinnerType spinnerType;
+    private SpinnerType type;
 
-    public Spinner(SpinnerType spinnerType) {
-        super("", ContentMode.HTML);
+    public Spinner(SpinnerType type) {
+        setType(type);
         setSizeUndefined();
-        this.spinnerType = spinnerType;
-        applyChanges();
     }
 
-    public SpinnerType getSpinnerType() {
-        return spinnerType;
-    }
-
-    public void setSpinnerType(SpinnerType spinnerType) {
-        if (spinnerType != this.spinnerType) {
-            this.spinnerType = spinnerType;
-            applyChanges();
+    public void setType(SpinnerType type) {
+        if (this.type != type) {
+            this.type = type;
+            if (type != null) {
+                getState().spinnerStyle = type.getStyle();
+                getState().spinnerHTML = type.getHtml();
+            } else {
+                getState().spinnerStyle = null;
+                getState().spinnerHTML = null;
+            }
         }
     }
 
-    private void applyChanges() {
-        super.setPrimaryStyleName(this.spinnerType.getStyle());
-        super.setValue(this.spinnerType.getHtml());
+    public SpinnerType getType() {
+        return type;
+    }
+
+    @Override
+    public SpinnerState getState() {
+        return (SpinnerState) super.getState();
     }
 
 
