@@ -78,6 +78,7 @@ public class DemoUI extends UI {
     private HorizontalLayout createTools(SpinnerType initialType) {
         ComboBox selector = new ComboBox("Select spinner type", Arrays.asList(SpinnerType.values()));
         selector.setNullSelectionAllowed(false);
+        selector.setPageLength(0);
         selector.setValue(initialType);
         selector.addValueChangeListener(e -> {
             widgetSpinner.setType((SpinnerType) e.getProperty().getValue());

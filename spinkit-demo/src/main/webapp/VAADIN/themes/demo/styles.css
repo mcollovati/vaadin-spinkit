@@ -1777,22 +1777,24 @@ div.v-layout.v-horizontal.v-widget {
 	vertical-align: top;
 }
 
-.demo .sk-rotating-plane {
+.demo .spinkit.sk-rotating-plane {
 	width: 40px;
 	height: 40px;
 	background-color: #333;
 	margin: 40px auto;
+	-webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
+	-moz-animation: sk-rotatePlane 1.2s infinite ease-in-out;
 	animation: sk-rotatePlane 1.2s infinite ease-in-out;
 }
 
-.demo .sk-double-bounce {
+.demo .spinkit.sk-double-bounce {
 	width: 40px;
 	height: 40px;
 	position: relative;
 	margin: 40px auto;
 }
 
-.demo .sk-double-bounce .sk-child {
+.demo .spinkit.sk-double-bounce .sk-child {
 	width: 100%;
 	height: 100%;
 	border-radius: 50%;
@@ -1801,14 +1803,18 @@ div.v-layout.v-horizontal.v-widget {
 	position: absolute;
 	top: 0;
 	left: 0;
+	-webkit-animation: sk-doubleBounce 2s infinite ease-in-out;
+	-moz-animation: sk-doubleBounce 2s infinite ease-in-out;
 	animation: sk-doubleBounce 2s infinite ease-in-out;
 }
 
-.demo .sk-double-bounce .sk-double-bounce2 {
+.demo .spinkit.sk-double-bounce .sk-double-bounce2 {
+	-webkit-animation-delay: -1s;
+	-moz-animation-delay: -1s;
 	animation-delay: -1s;
 }
 
-.demo .sk-wave {
+.demo .spinkit.sk-wave {
 	margin: 40px auto;
 	width: 50px;
 	height: 40px;
@@ -1816,32 +1822,34 @@ div.v-layout.v-horizontal.v-widget {
 	font-size: 10px;
 }
 
-.demo .sk-wave .sk-rect {
+.demo .spinkit.sk-wave .sk-rect {
 	background-color: #333;
 	height: 100%;
-	width: 7px;
-	margin: 0 3px 0 0;
+	width: 15%;
+	margin: 0 5% 0 0;
 	display: inline-block;
+	-webkit-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
+	-moz-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
 	animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
 }
 
-.demo .sk-wave .sk-rect1 {
+.demo .spinkit.sk-wave .sk-rect1 {
 	animation-delay: -1.2s;
 }
 
-.demo .sk-wave .sk-rect2 {
+.demo .spinkit.sk-wave .sk-rect2 {
 	animation-delay: -1.1s;
 }
 
-.demo .sk-wave .sk-rect3 {
+.demo .spinkit.sk-wave .sk-rect3 {
 	animation-delay: -1s;
 }
 
-.demo .sk-wave .sk-rect4 {
+.demo .spinkit.sk-wave .sk-rect4 {
 	animation-delay: -0.9s;
 }
 
-.demo .sk-wave .sk-rect5 {
+.demo .spinkit.sk-wave .sk-rect5 {
 	animation-delay: -0.8s;
 }
 
@@ -1856,43 +1864,53 @@ div.v-layout.v-horizontal.v-widget {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	-webkit-animation: sk-wanderingCube-xy 1.8s ease-in-out -1.8s infinite both;
+	-moz-animation: sk-wanderingCube-xy 1.8s ease-in-out -1.8s infinite both;
 	animation: sk-wanderingCube-xy 1.8s ease-in-out -1.8s infinite both;
 }
 
 .demo .spinkit.sk-wandering-cubes .sk-cube:before {
 	content: "";
 	background-color: #333;
-	width: 10px;
-	height: 10px;
+	width: 28%;
+	height: 28%;
 	position: absolute;
 	top: 0;
 	left: 0;
+	-webkit-animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
+	-moz-animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
 	animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
 }
 
 .demo .spinkit.sk-wandering-cubes .sk-cube2 {
+	-webkit-animation-delay: -0.9s;
+	-moz-animation-delay: -0.9s;
 	animation-delay: -0.9s;
 }
 
-.demo .sk-spinner-pulse {
+.demo .spinkit.sk-spinner-pulse {
 	width: 40px;
 	height: 40px;
 	margin: 40px auto;
 	background-color: #333;
 	border-radius: 100%;
+	-webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
+	-moz-animation: sk-pulseScaleOut 1s infinite ease-in-out;
 	animation: sk-pulseScaleOut 1s infinite ease-in-out;
 }
 
-.demo .sk-chasing-dots {
+.demo .spinkit.sk-chasing-dots {
 	margin: 40px auto;
 	width: 40px;
 	height: 40px;
 	position: relative;
 	text-align: center;
+	-webkit-animation: sk-chasingDotsRotate 2s infinite linear;
+	-moz-animation: sk-chasingDotsRotate 2s infinite linear;
 	animation: sk-chasingDotsRotate 2s infinite linear;
 }
 
-.demo .sk-chasing-dots .sk-child {
+.demo .spinkit.sk-chasing-dots .sk-child {
 	width: 60%;
 	height: 60%;
 	display: inline-block;
@@ -1900,36 +1918,44 @@ div.v-layout.v-horizontal.v-widget {
 	top: 0;
 	background-color: #333;
 	border-radius: 100%;
+	-webkit-animation: sk-chasingDotsBounce 2s infinite ease-in-out;
+	-moz-animation: sk-chasingDotsBounce 2s infinite ease-in-out;
 	animation: sk-chasingDotsBounce 2s infinite ease-in-out;
 }
 
-.demo .sk-chasing-dots .sk-dot2 {
+.demo .spinkit.sk-chasing-dots .sk-dot2 {
 	top: auto;
 	bottom: 0;
 	animation-delay: -1s;
 }
 
-.demo .sk-three-bounce {
+.demo .spinkit.sk-three-bounce {
 	margin: 40px auto;
 	width: 80px;
 	text-align: center;
 }
 
-.demo .sk-three-bounce .sk-child {
+.demo .spinkit.sk-three-bounce .sk-child {
 	width: 20px;
 	height: 20px;
 	background-color: #333;
 	border-radius: 100%;
 	display: inline-block;
+	-webkit-animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+	-moz-animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
 	animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
 }
 
-.demo .sk-three-bounce .sk-bounce1 {
-	animation-delay: -0.32s;
+.demo .spinkit.sk-three-bounce .sk-bounce1 {
+	-webkit-animation-delay: -0.31963s;
+	-moz-animation-delay: -0.31963s;
+	animation-delay: -0.31963s;
 }
 
-.demo .sk-three-bounce .sk-bounce2 {
-	animation-delay: -0.16s;
+.demo .spinkit.sk-three-bounce .sk-bounce2 {
+	-webkit-animation-delay: -0.15982s;
+	-moz-animation-delay: -0.15982s;
+	animation-delay: -0.15982s;
 }
 
 .demo .sk-circle {
@@ -13531,22 +13557,174 @@ div.v-layout.v-horizontal.v-widget {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	-webkit-animation: sk-wanderingCube-xy 1.8s ease-in-out -1.8s infinite both;
+	-moz-animation: sk-wanderingCube-xy 1.8s ease-in-out -1.8s infinite both;
 	animation: sk-wanderingCube-xy 1.8s ease-in-out -1.8s infinite both;
 }
 
 .demo .greenspin.sk-wandering-cubes .sk-cube:before {
 	content: "";
 	background-color: #40b527;
-	width: 10px;
-	height: 10px;
+	width: 28%;
+	height: 28%;
 	position: absolute;
 	top: 0;
 	left: 0;
+	-webkit-animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
+	-moz-animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
 	animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
 }
 
 .demo .greenspin.sk-wandering-cubes .sk-cube2 {
+	-webkit-animation-delay: -0.9s;
+	-moz-animation-delay: -0.9s;
 	animation-delay: -0.9s;
+}
+
+.demo .greenspin.sk-rotating-plane {
+	width: 40px;
+	height: 40px;
+	background-color: #40b527;
+	margin: 40px auto;
+	-webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
+	-moz-animation: sk-rotatePlane 1.2s infinite ease-in-out;
+	animation: sk-rotatePlane 1.2s infinite ease-in-out;
+}
+
+.demo .greenspin.sk-double-bounce {
+	width: 40px;
+	height: 40px;
+	position: relative;
+	margin: 40px auto;
+}
+
+.demo .greenspin.sk-double-bounce .sk-child {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-color: #40b527;
+	opacity: 0.6;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-animation: sk-doubleBounce 2s infinite ease-in-out;
+	-moz-animation: sk-doubleBounce 2s infinite ease-in-out;
+	animation: sk-doubleBounce 2s infinite ease-in-out;
+}
+
+.demo .greenspin.sk-double-bounce .sk-double-bounce2 {
+	-webkit-animation-delay: -1s;
+	-moz-animation-delay: -1s;
+	animation-delay: -1s;
+}
+
+.demo .greenspin.sk-wave {
+	margin: 40px auto;
+	width: 50px;
+	height: 40px;
+	text-align: center;
+	font-size: 10px;
+}
+
+.demo .greenspin.sk-wave .sk-rect {
+	background-color: #40b527;
+	height: 100%;
+	width: 15%;
+	margin: 0 5% 0 0;
+	display: inline-block;
+	-webkit-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
+	-moz-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
+	animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
+}
+
+.demo .greenspin.sk-wave .sk-rect1 {
+	animation-delay: -1.2s;
+}
+
+.demo .greenspin.sk-wave .sk-rect2 {
+	animation-delay: -1.1s;
+}
+
+.demo .greenspin.sk-wave .sk-rect3 {
+	animation-delay: -1s;
+}
+
+.demo .greenspin.sk-wave .sk-rect4 {
+	animation-delay: -0.9s;
+}
+
+.demo .greenspin.sk-wave .sk-rect5 {
+	animation-delay: -0.8s;
+}
+
+.demo .greenspin.sk-spinner-pulse {
+	width: 40px;
+	height: 40px;
+	margin: 40px auto;
+	background-color: #40b527;
+	border-radius: 100%;
+	-webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
+	-moz-animation: sk-pulseScaleOut 1s infinite ease-in-out;
+	animation: sk-pulseScaleOut 1s infinite ease-in-out;
+}
+
+.demo .greenspin.sk-chasing-dots {
+	margin: 40px auto;
+	width: 40px;
+	height: 40px;
+	position: relative;
+	text-align: center;
+	-webkit-animation: sk-chasingDotsRotate 2s infinite linear;
+	-moz-animation: sk-chasingDotsRotate 2s infinite linear;
+	animation: sk-chasingDotsRotate 2s infinite linear;
+}
+
+.demo .greenspin.sk-chasing-dots .sk-child {
+	width: 60%;
+	height: 60%;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	background-color: #40b527;
+	border-radius: 100%;
+	-webkit-animation: sk-chasingDotsBounce 2s infinite ease-in-out;
+	-moz-animation: sk-chasingDotsBounce 2s infinite ease-in-out;
+	animation: sk-chasingDotsBounce 2s infinite ease-in-out;
+}
+
+.demo .greenspin.sk-chasing-dots .sk-dot2 {
+	top: auto;
+	bottom: 0;
+	animation-delay: -1s;
+}
+
+.demo .greenspin.sk-three-bounce {
+	margin: 40px auto;
+	width: 80px;
+	text-align: center;
+}
+
+.demo .greenspin.sk-three-bounce .sk-child {
+	width: 20px;
+	height: 20px;
+	background-color: #40b527;
+	border-radius: 100%;
+	display: inline-block;
+	-webkit-animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+	-moz-animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+	animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+}
+
+.demo .greenspin.sk-three-bounce .sk-bounce1 {
+	-webkit-animation-delay: -0.31963s;
+	-moz-animation-delay: -0.31963s;
+	animation-delay: -0.31963s;
+}
+
+.demo .greenspin.sk-three-bounce .sk-bounce2 {
+	-webkit-animation-delay: -0.15982s;
+	-moz-animation-delay: -0.15982s;
+	animation-delay: -0.15982s;
 }
 
 .demo div.spinkitxxx {

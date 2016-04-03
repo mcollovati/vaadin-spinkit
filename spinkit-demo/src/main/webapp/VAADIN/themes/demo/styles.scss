@@ -22,7 +22,14 @@ $darkgreen: darken($green, 30%);
 	}
 
 	$spinkit-spinner-color: $green;
-	@include sk-wandering-cubes($primary-stylename: greenspin, $cubeDistance: 20px);
+	@include sk-wandering-cubes($primary-stylename: greenspin);
+	@include sk-rotating-plane($primary-stylename: greenspin);
+	@include sk-double-bounce($primary-stylename: greenspin);
+	@include sk-wave($primary-stylename: greenspin);
+	@include sk-spinner-pulse($primary-stylename: greenspin);
+	@include sk-chasing-dots($primary-stylename: greenspin);
+	@include sk-three-bounce($primary-stylename: greenspin);
+
 
 	// You can also customize your component for the demo
 	// app, but remember that these styles are not part of

@@ -8,10 +8,14 @@
  *
  */
 
-$wandering-cubes-cube-distance: 90% !default;
-$wandering-cubes-animation-duration: 1.8s !default;
+$sk-wandering-cubes-cube-distance: 90% !default;
+$sk-wandering-cubes-animation-duration: 1.8s !default;
+$sk-wandering-cubes-cube-size: 28% !default;
 
-@mixin sk-wandering-cubes($primary-stylename: spinkit, $cubeDistance: $wandering-cubes-cube-distance, $animationDuration: $wandering-cubes-animation-duration) {
+@mixin sk-wandering-cubes($primary-stylename: spinkit,
+  $animation-duration: $sk-wandering-cubes-animation-duration,
+  $cube-size: $sk-wandering-cubes-cube-size
+) {
 .#{$primary-stylename}.sk-wandering-cubes {
 
   margin: $spinkit-spinner-margin;
@@ -23,22 +27,22 @@ $wandering-cubes-animation-duration: 1.8s !default;
     position: absolute;
     width: 100%;
     height: 100%;
-    animation: sk-wanderingCube-xy $animationDuration ease-in-out #{-$animationDuration} infinite both;
+    @include animation(sk-wanderingCube-xy $animation-duration ease-in-out #{-$animation-duration} infinite both);
   }
 
   .sk-cube:before {
-    content: "";2
+    content: "";
     background-color: $spinkit-spinner-color;
-    width: 10px;
-    height: 10px;
+    width: $cube-size;
+    height: $cube-size;
     position: absolute;
     top: 0;
     left: 0;
-    animation: sk-wanderingCube $animationDuration ease-in-out #{-$animationDuration} infinite both;
+    @include animation(sk-wanderingCube $animation-duration ease-in-out #{-$animation-duration} infinite both);
   }
 
   .sk-cube2 {
-    animation-delay: -$animationDuration / 2;
+    @include animation-delay(-$animation-duration / 2);
   }
 }
 }
@@ -62,14 +66,14 @@ $wandering-cubes-animation-duration: 1.8s !default;
 
 @include keyframes(sk-wanderingCube-xy) {
   25% {
-    transform: translateX($wandering-cubes-cube-distance);
+    transform: translateX($sk-wandering-cubes-cube-distance);
   } 50% {
     /* Hack to make FF rotate in the right direction */
-    transform: translateX($wandering-cubes-cube-distance) translateY($wandering-cubes-cube-distance);
+    transform: translateX($sk-wandering-cubes-cube-distance) translateY($sk-wandering-cubes-cube-distance);
   } 50.1% {
-    transform: translateX($wandering-cubes-cube-distance) translateY($wandering-cubes-cube-distance);
+    transform: translateX($sk-wandering-cubes-cube-distance) translateY($sk-wandering-cubes-cube-distance);
   } 75% {
-    transform: translateX(0) translateY($wandering-cubes-cube-distance);
+    transform: translateX(0) translateY($sk-wandering-cubes-cube-distance);
   }
 }
 

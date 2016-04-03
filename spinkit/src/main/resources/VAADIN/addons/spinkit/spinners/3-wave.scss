@@ -10,12 +10,12 @@
       </div>
  *
  */
-$spinkit-wave-rect-margin: 0 3px 0 0;
+$sk-wave-animation-duration: 1.2s !default;
 
-@mixin sk-wave {
-.sk-wave {
+@mixin sk-wave($primary-stylename: $spinkit-primary-stylename,
+  $animation-duration: $sk-wave-animation-duration) {
+.#{$primary-stylename}.sk-wave {
   $rectCount: 5;
-  $animationDuration: 1.2s;
   $delayRange: 0.4s;
 
   margin: $spinkit-spinner-margin;
@@ -27,14 +27,14 @@ $spinkit-wave-rect-margin: 0 3px 0 0;
   .sk-rect {
     background-color: $spinkit-spinner-color;
     height: 100%;
-    width: 7px;
-    margin: $spinkit-wave-rect-margin;
+    width: (100% / $rectCount) - (1% * $rectCount);
+    margin: 0 1% * $rectCount 0 0;
     display: inline-block;
-    animation: sk-waveStretchDelay $animationDuration infinite ease-in-out;
+    @include animation(sk-waveStretchDelay $animation-duration infinite ease-in-out);
   }
 
   @for $i from 1 through $rectCount {
-    .sk-rect#{$i} { animation-delay: $delayRange / ($rectCount - 1) * ($i - 1) - $animationDuration; }
+    .sk-rect#{$i} { animation-delay: $delayRange / ($rectCount - 1) * ($i - 1) - $animation-duration; }
   }
 }
 

@@ -14,12 +14,15 @@
   }
 }
 
-@mixin sk-rotating-plane {
-  .sk-rotating-plane {
+$sk-rotating-plane-animation-duration: 1.2s !default;
+
+@mixin sk-rotating-plane($primary-stylename: $spinkit-primary-stylename,
+  $animation-duration: $sk-rotating-plane-animation-duration) {
+  .#{$primary-stylename}.sk-rotating-plane {
     width: $spinkit-size;
     height: $spinkit-size;
     background-color: $spinkit-spinner-color;
     margin: $spinkit-spinner-margin;
-    animation: sk-rotatePlane 1.2s infinite ease-in-out;
+    @include animation(sk-rotatePlane $animation-duration infinite ease-in-out);
   }
 }

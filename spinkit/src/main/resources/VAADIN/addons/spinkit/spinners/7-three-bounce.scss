@@ -9,26 +9,29 @@
  *
  */
 
-@mixin sk-three-bounce {
-.sk-three-bounce {
-  $animationDuration: 1.4s;
-  $delayRange: 0.32s;
+$sk-three-bounce-animation-duration: 1.4s !default;
+
+@mixin sk-three-bounce($primary-stylename: $spinkit-primary-stylename,
+    $animation-duration: $sk-three-bounce-animation-duration) {
+.#{$primary-stylename}.sk-three-bounce {
+
+  $delayRange: $animation-duration / 4.38;
   margin: $spinkit-spinner-margin;
   width: $spinkit-size * 2;
   text-align: center;
 
   .sk-child {
-    width: $spinkit-size / 2;
-    height: $spinkit-size / 2;
+    width: 50%;
+    height: 50%;
     background-color: $spinkit-spinner-color;
 
     border-radius: 100%;
     display: inline-block;
-    animation: sk-three-bounce $animationDuration ease-in-out 0s infinite both;
+    @include animation(sk-three-bounce $animation-duration ease-in-out 0s infinite both);
   }
 
-  .sk-bounce1 { animation-delay: -$delayRange; }
-  .sk-bounce2 { animation-delay: -$delayRange / 2; }
+  .sk-bounce1 { @include animation-delay(-$delayRange); }
+  .sk-bounce2 { @include animation-delay(-$delayRange / 2); }
 }
 
 }

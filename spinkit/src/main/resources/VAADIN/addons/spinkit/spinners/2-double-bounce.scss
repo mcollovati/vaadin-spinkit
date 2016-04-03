@@ -7,8 +7,14 @@
       </div>
  *
  */
-@mixin sk-double-bounce {
-  .sk-double-bounce {
+
+$sk-double-bounce-opacity: 0.6 !default;
+$sk-double-bounce-animation-duration: 2.0s !default;
+
+@mixin sk-double-bounce($primary-stylename: $spinkit-primary-stylename,
+  $opacity: $sk-double-bounce-opacity,
+  $animation-duration: $sk-double-bounce-animation-duration) {
+  .#{$primary-stylename}.sk-double-bounce {
     width: $spinkit-size;
     height: $spinkit-size;
     position: relative;
@@ -19,15 +25,15 @@
       height: 100%;
       border-radius: 50%;
       background-color: $spinkit-spinner-color;
-      opacity: 0.6;
+      opacity: $opacity;
       position: absolute;
       top: 0;
       left: 0;
-      animation: sk-doubleBounce 2.0s infinite ease-in-out;
+      @include animation(sk-doubleBounce $animation-duration infinite ease-in-out);
     }
 
     .sk-double-bounce2 {
-      animation-delay: 0 - 1.0s;
+      @include animation-delay(0 - $animation-duration / 2);
     }
   }
 
