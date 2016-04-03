@@ -1,6 +1,7 @@
 package org.vaadin.spinkit;
 
-import org.vaadin.spinkit.client.SpinnerState;
+import org.vaadin.spinkit.shared.SpinnerState;
+import org.vaadin.spinkit.shared.SpinnerType;
 
 public class Spinner extends com.vaadin.ui.AbstractComponent {
 
@@ -15,11 +16,9 @@ public class Spinner extends com.vaadin.ui.AbstractComponent {
         if (this.type != type) {
             this.type = type;
             if (type != null) {
-                getState().spinnerStyle = type.getStyle();
-                getState().spinnerHTML = type.getHtml();
+                getState().spinnerType = type;
             } else {
-                getState().spinnerStyle = null;
-                getState().spinnerHTML = null;
+                getState().spinnerType = null;
             }
         }
     }

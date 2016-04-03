@@ -18,10 +18,12 @@
  *
  */
 
-@mixin sk-fading-circle {
-.sk-fading-circle {
+$sk-fading-circle-animation-duration: 1.2s;
+
+@mixin sk-fading-circle($primary-stylename: $spinkit-primary-stylename,
+                           $animation-duration: $sk-fading-circle-animation-duration) {
+.#{$primary-stylename}.sk-fading-circle {
   $circleCount: 12;
-  $animationDuration: 1.2s;
 
   margin: $spinkit-spinner-margin;
   width: $spinkit-size;
@@ -44,7 +46,7 @@
     height: 15%;
     background-color: $spinkit-spinner-color;
     border-radius: 100%;
-    animation: sk-circleFadeDelay $animationDuration infinite ease-in-out both;
+    animation: sk-circleFadeDelay $animation-duration infinite ease-in-out both;
   }
 
   @for $i from 2 through $circleCount {
@@ -52,7 +54,7 @@
   }
 
   @for $i from 2 through $circleCount {
-    .sk-circle#{$i}:before { animation-delay: 0 - $animationDuration + $animationDuration / $circleCount * ($i - 1); }
+    .sk-circle#{$i}:before { animation-delay: 0 - $animation-duration + $animation-duration / $circleCount * ($i - 1); }
   }
 
 }

@@ -12,7 +12,7 @@ $sk-wandering-cubes-cube-distance: 90% !default;
 $sk-wandering-cubes-animation-duration: 1.8s !default;
 $sk-wandering-cubes-cube-size: 28% !default;
 
-@mixin sk-wandering-cubes($primary-stylename: spinkit,
+@mixin sk-wandering-cubes($primary-stylename: $spinkit-primary-stylename,
   $animation-duration: $sk-wandering-cubes-animation-duration,
   $cube-size: $sk-wandering-cubes-cube-size
 ) {

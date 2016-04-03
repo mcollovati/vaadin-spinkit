@@ -1,4 +1,4 @@
-package org.vaadin.spinkit;
+package org.vaadin.spinkit.shared;
 
 /**
  * Created by marco on 16/09/15.

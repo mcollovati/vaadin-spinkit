@@ -21,8 +21,8 @@ $sk-three-bounce-animation-duration: 1.4s !default;
   text-align: center;
 
   .sk-child {
-    width: 50%;
-    height: 50%;
+    width: $spinkit-size / 2;
+    height: $spinkit-size / 2;
     background-color: $spinkit-spinner-color;
 
     border-radius: 100%;

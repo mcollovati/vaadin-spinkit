@@ -15,8 +15,8 @@
  *
  */
 
-@mixin sk-cube-grid {
-.sk-cube-grid {
+@mixin sk-cube-grid($primary-stylename: $spinkit-primary-stylename) {
+.#{$primary-stylename}.sk-cube-grid {
   $delayRange: 0.4s;
 
   width: $spinkit-size;

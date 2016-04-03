@@ -1958,14 +1958,14 @@ div.v-layout.v-horizontal.v-widget {
 	animation-delay: -0.15982s;
 }
 
-.demo .sk-circle {
+.demo .spinkit.sk-circle {
 	margin: 40px auto;
 	width: 40px;
 	height: 40px;
 	position: relative;
 }
 
-.demo .sk-circle .sk-child {
+.demo .spinkit.sk-circle .sk-child {
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -1973,7 +1973,7 @@ div.v-layout.v-horizontal.v-widget {
 	top: 0;
 }
 
-.demo .sk-circle .sk-child:before {
+.demo .spinkit.sk-circle .sk-child:before {
 	content: "";
 	display: block;
 	margin: 0 auto;
@@ -1984,152 +1984,152 @@ div.v-layout.v-horizontal.v-widget {
 	animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
 }
 
-.demo .sk-circle .sk-circle2 {
+.demo .spinkit.sk-circle .sk-circle2 {
 	transform: rotate(30deg);
 }
 
-.demo .sk-circle .sk-circle3 {
+.demo .spinkit.sk-circle .sk-circle3 {
 	transform: rotate(60deg);
 }
 
-.demo .sk-circle .sk-circle4 {
+.demo .spinkit.sk-circle .sk-circle4 {
 	transform: rotate(90deg);
 }
 
-.demo .sk-circle .sk-circle5 {
+.demo .spinkit.sk-circle .sk-circle5 {
 	transform: rotate(120deg);
 }
 
-.demo .sk-circle .sk-circle6 {
+.demo .spinkit.sk-circle .sk-circle6 {
 	transform: rotate(150deg);
 }
 
-.demo .sk-circle .sk-circle7 {
+.demo .spinkit.sk-circle .sk-circle7 {
 	transform: rotate(180deg);
 }
 
-.demo .sk-circle .sk-circle8 {
+.demo .spinkit.sk-circle .sk-circle8 {
 	transform: rotate(210deg);
 }
 
-.demo .sk-circle .sk-circle9 {
+.demo .spinkit.sk-circle .sk-circle9 {
 	transform: rotate(240deg);
 }
 
-.demo .sk-circle .sk-circle10 {
+.demo .spinkit.sk-circle .sk-circle10 {
 	transform: rotate(270deg);
 }
 
-.demo .sk-circle .sk-circle11 {
+.demo .spinkit.sk-circle .sk-circle11 {
 	transform: rotate(300deg);
 }
 
-.demo .sk-circle .sk-circle12 {
+.demo .spinkit.sk-circle .sk-circle12 {
 	transform: rotate(330deg);
 }
 
-.demo .sk-circle .sk-circle2:before {
+.demo .spinkit.sk-circle .sk-circle2:before {
 	animation-delay: -1.1s;
 }
 
-.demo .sk-circle .sk-circle3:before {
+.demo .spinkit.sk-circle .sk-circle3:before {
 	animation-delay: -1s;
 }
 
-.demo .sk-circle .sk-circle4:before {
+.demo .spinkit.sk-circle .sk-circle4:before {
 	animation-delay: -0.9s;
 }
 
-.demo .sk-circle .sk-circle5:before {
+.demo .spinkit.sk-circle .sk-circle5:before {
 	animation-delay: -0.8s;
 }
 
-.demo .sk-circle .sk-circle6:before {
+.demo .spinkit.sk-circle .sk-circle6:before {
 	animation-delay: -0.7s;
 }
 
-.demo .sk-circle .sk-circle7:before {
+.demo .spinkit.sk-circle .sk-circle7:before {
 	animation-delay: -0.6s;
 }
 
-.demo .sk-circle .sk-circle8:before {
+.demo .spinkit.sk-circle .sk-circle8:before {
 	animation-delay: -0.5s;
 }
 
-.demo .sk-circle .sk-circle9:before {
+.demo .spinkit.sk-circle .sk-circle9:before {
 	animation-delay: -0.4s;
 }
 
-.demo .sk-circle .sk-circle10:before {
+.demo .spinkit.sk-circle .sk-circle10:before {
 	animation-delay: -0.3s;
 }
 
-.demo .sk-circle .sk-circle11:before {
+.demo .spinkit.sk-circle .sk-circle11:before {
 	animation-delay: -0.2s;
 }
 
-.demo .sk-circle .sk-circle12:before {
+.demo .spinkit.sk-circle .sk-circle12:before {
 	animation-delay: -0.1s;
 }
 
-.demo .sk-cube-grid {
+.demo .spinkit.sk-cube-grid {
 	width: 40px;
 	height: 40px;
 	margin: 40px auto;
 }
 
-.demo .sk-cube-grid .sk-cube {
-	width: 33%;
-	height: 33%;
+.demo .spinkit.sk-cube-grid .sk-cube {
+	width: 33.33%;
+	height: 33.33%;
 	background-color: #333;
 	float: left;
 	animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
 }
 
-.demo .sk-cube-grid .sk-cube1 {
+.demo .spinkit.sk-cube-grid .sk-cube1 {
 	animation-delay: 0.2s;
 }
 
-.demo .sk-cube-grid .sk-cube2 {
+.demo .spinkit.sk-cube-grid .sk-cube2 {
 	animation-delay: 0.3s;
 }
 
-.demo .sk-cube-grid .sk-cube3 {
+.demo .spinkit.sk-cube-grid .sk-cube3 {
 	animation-delay: 0.4s;
 }
 
-.demo .sk-cube-grid .sk-cube4 {
+.demo .spinkit.sk-cube-grid .sk-cube4 {
 	animation-delay: 0.1s;
 }
 
-.demo .sk-cube-grid .sk-cube5 {
+.demo .spinkit.sk-cube-grid .sk-cube5 {
 	animation-delay: 0.2s;
 }
 
-.demo .sk-cube-grid .sk-cube6 {
+.demo .spinkit.sk-cube-grid .sk-cube6 {
 	animation-delay: 0.3s;
 }
 
-.demo .sk-cube-grid .sk-cube7 {
+.demo .spinkit.sk-cube-grid .sk-cube7 {
 	animation-delay: 0s;
 }
 
-.demo .sk-cube-grid .sk-cube8 {
+.demo .spinkit.sk-cube-grid .sk-cube8 {
 	animation-delay: 0.1s;
 }
 
-.demo .sk-cube-grid .sk-cube9 {
+.demo .spinkit.sk-cube-grid .sk-cube9 {
 	animation-delay: 0.2s;
 }
 
-.demo .sk-fading-circle {
+.demo .spinkit.sk-fading-circle {
 	margin: 40px auto;
 	width: 40px;
 	height: 40px;
 	position: relative;
 }
 
-.demo .sk-fading-circle .sk-circle {
+.demo .spinkit.sk-fading-circle .sk-circle {
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -2137,7 +2137,7 @@ div.v-layout.v-horizontal.v-widget {
 	top: 0;
 }
 
-.demo .sk-fading-circle .sk-circle:before {
+.demo .spinkit.sk-fading-circle .sk-circle:before {
 	content: "";
 	display: block;
 	margin: 0 auto;
@@ -2148,95 +2148,95 @@ div.v-layout.v-horizontal.v-widget {
 	animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
 }
 
-.demo .sk-fading-circle .sk-circle2 {
+.demo .spinkit.sk-fading-circle .sk-circle2 {
 	transform: rotate(30deg);
 }
 
-.demo .sk-fading-circle .sk-circle3 {
+.demo .spinkit.sk-fading-circle .sk-circle3 {
 	transform: rotate(60deg);
 }
 
-.demo .sk-fading-circle .sk-circle4 {
+.demo .spinkit.sk-fading-circle .sk-circle4 {
 	transform: rotate(90deg);
 }
 
-.demo .sk-fading-circle .sk-circle5 {
+.demo .spinkit.sk-fading-circle .sk-circle5 {
 	transform: rotate(120deg);
 }
 
-.demo .sk-fading-circle .sk-circle6 {
+.demo .spinkit.sk-fading-circle .sk-circle6 {
 	transform: rotate(150deg);
 }
 
-.demo .sk-fading-circle .sk-circle7 {
+.demo .spinkit.sk-fading-circle .sk-circle7 {
 	transform: rotate(180deg);
 }
 
-.demo .sk-fading-circle .sk-circle8 {
+.demo .spinkit.sk-fading-circle .sk-circle8 {
 	transform: rotate(210deg);
 }
 
-.demo .sk-fading-circle .sk-circle9 {
+.demo .spinkit.sk-fading-circle .sk-circle9 {
 	transform: rotate(240deg);
 }
 
-.demo .sk-fading-circle .sk-circle10 {
+.demo .spinkit.sk-fading-circle .sk-circle10 {
 	transform: rotate(270deg);
 }
 
-.demo .sk-fading-circle .sk-circle11 {
+.demo .spinkit.sk-fading-circle .sk-circle11 {
 	transform: rotate(300deg);
 }
 
-.demo .sk-fading-circle .sk-circle12 {
+.demo .spinkit.sk-fading-circle .sk-circle12 {
 	transform: rotate(330deg);
 }
 
-.demo .sk-fading-circle .sk-circle2:before {
+.demo .spinkit.sk-fading-circle .sk-circle2:before {
 	animation-delay: -1.1s;
 }
 
-.demo .sk-fading-circle .sk-circle3:before {
+.demo .spinkit.sk-fading-circle .sk-circle3:before {
 	animation-delay: -1s;
 }
 
-.demo .sk-fading-circle .sk-circle4:before {
+.demo .spinkit.sk-fading-circle .sk-circle4:before {
 	animation-delay: -0.9s;
 }
 
-.demo .sk-fading-circle .sk-circle5:before {
+.demo .spinkit.sk-fading-circle .sk-circle5:before {
 	animation-delay: -0.8s;
 }
 
-.demo .sk-fading-circle .sk-circle6:before {
+.demo .spinkit.sk-fading-circle .sk-circle6:before {
 	animation-delay: -0.7s;
 }
 
-.demo .sk-fading-circle .sk-circle7:before {
+.demo .spinkit.sk-fading-circle .sk-circle7:before {
 	animation-delay: -0.6s;
 }
 
-.demo .sk-fading-circle .sk-circle8:before {
+.demo .spinkit.sk-fading-circle .sk-circle8:before {
 	animation-delay: -0.5s;
 }
 
-.demo .sk-fading-circle .sk-circle9:before {
+.demo .spinkit.sk-fading-circle .sk-circle9:before {
 	animation-delay: -0.4s;
 }
 
-.demo .sk-fading-circle .sk-circle10:before {
+.demo .spinkit.sk-fading-circle .sk-circle10:before {
 	animation-delay: -0.3s;
 }
 
-.demo .sk-fading-circle .sk-circle11:before {
+.demo .spinkit.sk-fading-circle .sk-circle11:before {
 	animation-delay: -0.2s;
 }
 
-.demo .sk-fading-circle .sk-circle12:before {
+.demo .spinkit.sk-fading-circle .sk-circle12:before {
 	animation-delay: -0.1s;
 }
 
-.demo .sk-folding-cube {
+.demo .spinkit.sk-folding-cube {
 	margin: 40px auto;
 	width: 40px;
 	height: 40px;
@@ -2244,7 +2244,7 @@ div.v-layout.v-horizontal.v-widget {
 	transform: rotateZ(45deg);
 }
 
-.demo .sk-folding-cube .sk-cube {
+.demo .spinkit.sk-folding-cube .sk-cube {
 	float: left;
 	width: 50%;
 	height: 50%;
@@ -2252,7 +2252,7 @@ div.v-layout.v-horizontal.v-widget {
 	transform: scale(1.1);
 }
 
-.demo .sk-folding-cube .sk-cube:before {
+.demo .spinkit.sk-folding-cube .sk-cube:before {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -2264,27 +2264,27 @@ div.v-layout.v-horizontal.v-widget {
 	transform-origin: 100% 100%;
 }
 
-.demo .sk-folding-cube .sk-cube2 {
+.demo .spinkit.sk-folding-cube .sk-cube2 {
 	transform: scale(1.1) rotateZ(90deg);
 }
 
-.demo .sk-folding-cube .sk-cube3 {
+.demo .spinkit.sk-folding-cube .sk-cube3 {
 	transform: scale(1.1) rotateZ(180deg);
 }
 
-.demo .sk-folding-cube .sk-cube4 {
+.demo .spinkit.sk-folding-cube .sk-cube4 {
 	transform: scale(1.1) rotateZ(270deg);
 }
 
-.demo .sk-folding-cube .sk-cube2:before {
+.demo .spinkit.sk-folding-cube .sk-cube2:before {
 	animation-delay: 0.3s;
 }
 
-.demo .sk-folding-cube .sk-cube3:before {
+.demo .spinkit.sk-folding-cube .sk-cube3:before {
 	animation-delay: 0.6s;
 }
 
-.demo .sk-folding-cube .sk-cube4:before {
+.demo .spinkit.sk-folding-cube .sk-cube4:before {
 	animation-delay: 0.9s;
 }
 
@@ -13546,41 +13546,6 @@ div.v-layout.v-horizontal.v-widget {
 	background-repeat: no-repeat;
 }
 
-.demo .greenspin.sk-wandering-cubes {
-	margin: 40px auto;
-	width: 40px;
-	height: 40px;
-	position: relative;
-}
-
-.demo .greenspin.sk-wandering-cubes .sk-cube {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	-webkit-animation: sk-wanderingCube-xy 1.8s ease-in-out -1.8s infinite both;
-	-moz-animation: sk-wanderingCube-xy 1.8s ease-in-out -1.8s infinite both;
-	animation: sk-wanderingCube-xy 1.8s ease-in-out -1.8s infinite both;
-}
-
-.demo .greenspin.sk-wandering-cubes .sk-cube:before {
-	content: "";
-	background-color: #40b527;
-	width: 28%;
-	height: 28%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	-webkit-animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
-	-moz-animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
-	animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
-}
-
-.demo .greenspin.sk-wandering-cubes .sk-cube2 {
-	-webkit-animation-delay: -0.9s;
-	-moz-animation-delay: -0.9s;
-	animation-delay: -0.9s;
-}
-
 .demo .greenspin.sk-rotating-plane {
 	width: 40px;
 	height: 40px;
@@ -13657,6 +13622,41 @@ div.v-layout.v-horizontal.v-widget {
 	animation-delay: -0.8s;
 }
 
+.demo .greenspin.sk-wandering-cubes {
+	margin: 40px auto;
+	width: 40px;
+	height: 40px;
+	position: relative;
+}
+
+.demo .greenspin.sk-wandering-cubes .sk-cube {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-animation: sk-wanderingCube-xy 1.8s ease-in-out -1.8s infinite both;
+	-moz-animation: sk-wanderingCube-xy 1.8s ease-in-out -1.8s infinite both;
+	animation: sk-wanderingCube-xy 1.8s ease-in-out -1.8s infinite both;
+}
+
+.demo .greenspin.sk-wandering-cubes .sk-cube:before {
+	content: "";
+	background-color: #40b527;
+	width: 28%;
+	height: 28%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
+	-moz-animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
+	animation: sk-wanderingCube 1.8s ease-in-out -1.8s infinite both;
+}
+
+.demo .greenspin.sk-wandering-cubes .sk-cube2 {
+	-webkit-animation-delay: -0.9s;
+	-moz-animation-delay: -0.9s;
+	animation-delay: -0.9s;
+}
+
 .demo .greenspin.sk-spinner-pulse {
 	width: 40px;
 	height: 40px;
@@ -13727,10 +13727,332 @@ div.v-layout.v-horizontal.v-widget {
 	animation-delay: -0.15982s;
 }
 
-.demo div.spinkitxxx {
-	color: #40b527;
-	font-size: 50pt;
-	font-weight: bold;
-	text-shadow: 0px 3px 0px #13370c, 0px 14px 10px rgba(0, 0, 0, 0.15), 0px 24px 2px rgba(0, 0, 0, 0.1), 0px 34px 30px rgba(0, 0, 0, 0.1);
-	text-align: center;
+.demo .greenspin.sk-circle {
+	margin: 40px auto;
+	width: 40px;
+	height: 40px;
+	position: relative;
+}
+
+.demo .greenspin.sk-circle .sk-child {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.demo .greenspin.sk-circle .sk-child:before {
+	content: "";
+	display: block;
+	margin: 0 auto;
+	width: 15%;
+	height: 15%;
+	background-color: #40b527;
+	border-radius: 100%;
+	animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
+}
+
+.demo .greenspin.sk-circle .sk-circle2 {
+	transform: rotate(30deg);
+}
+
+.demo .greenspin.sk-circle .sk-circle3 {
+	transform: rotate(60deg);
+}
+
+.demo .greenspin.sk-circle .sk-circle4 {
+	transform: rotate(90deg);
+}
+
+.demo .greenspin.sk-circle .sk-circle5 {
+	transform: rotate(120deg);
+}
+
+.demo .greenspin.sk-circle .sk-circle6 {
+	transform: rotate(150deg);
+}
+
+.demo .greenspin.sk-circle .sk-circle7 {
+	transform: rotate(180deg);
+}
+
+.demo .greenspin.sk-circle .sk-circle8 {
+	transform: rotate(210deg);
+}
+
+.demo .greenspin.sk-circle .sk-circle9 {
+	transform: rotate(240deg);
+}
+
+.demo .greenspin.sk-circle .sk-circle10 {
+	transform: rotate(270deg);
+}
+
+.demo .greenspin.sk-circle .sk-circle11 {
+	transform: rotate(300deg);
+}
+
+.demo .greenspin.sk-circle .sk-circle12 {
+	transform: rotate(330deg);
+}
+
+.demo .greenspin.sk-circle .sk-circle2:before {
+	animation-delay: -1.1s;
+}
+
+.demo .greenspin.sk-circle .sk-circle3:before {
+	animation-delay: -1s;
+}
+
+.demo .greenspin.sk-circle .sk-circle4:before {
+	animation-delay: -0.9s;
+}
+
+.demo .greenspin.sk-circle .sk-circle5:before {
+	animation-delay: -0.8s;
+}
+
+.demo .greenspin.sk-circle .sk-circle6:before {
+	animation-delay: -0.7s;
+}
+
+.demo .greenspin.sk-circle .sk-circle7:before {
+	animation-delay: -0.6s;
+}
+
+.demo .greenspin.sk-circle .sk-circle8:before {
+	animation-delay: -0.5s;
+}
+
+.demo .greenspin.sk-circle .sk-circle9:before {
+	animation-delay: -0.4s;
+}
+
+.demo .greenspin.sk-circle .sk-circle10:before {
+	animation-delay: -0.3s;
+}
+
+.demo .greenspin.sk-circle .sk-circle11:before {
+	animation-delay: -0.2s;
+}
+
+.demo .greenspin.sk-circle .sk-circle12:before {
+	animation-delay: -0.1s;
+}
+
+.demo .greenspin.sk-cube-grid {
+	width: 40px;
+	height: 40px;
+	margin: 40px auto;
+}
+
+.demo .greenspin.sk-cube-grid .sk-cube {
+	width: 33.33%;
+	height: 33.33%;
+	background-color: #40b527;
+	float: left;
+	animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+
+.demo .greenspin.sk-cube-grid .sk-cube1 {
+	animation-delay: 0.2s;
+}
+
+.demo .greenspin.sk-cube-grid .sk-cube2 {
+	animation-delay: 0.3s;
+}
+
+.demo .greenspin.sk-cube-grid .sk-cube3 {
+	animation-delay: 0.4s;
+}
+
+.demo .greenspin.sk-cube-grid .sk-cube4 {
+	animation-delay: 0.1s;
+}
+
+.demo .greenspin.sk-cube-grid .sk-cube5 {
+	animation-delay: 0.2s;
+}
+
+.demo .greenspin.sk-cube-grid .sk-cube6 {
+	animation-delay: 0.3s;
+}
+
+.demo .greenspin.sk-cube-grid .sk-cube7 {
+	animation-delay: 0s;
+}
+
+.demo .greenspin.sk-cube-grid .sk-cube8 {
+	animation-delay: 0.1s;
+}
+
+.demo .greenspin.sk-cube-grid .sk-cube9 {
+	animation-delay: 0.2s;
+}
+
+.demo .greenspin.sk-fading-circle {
+	margin: 40px auto;
+	width: 40px;
+	height: 40px;
+	position: relative;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle:before {
+	content: "";
+	display: block;
+	margin: 0 auto;
+	width: 15%;
+	height: 15%;
+	background-color: #40b527;
+	border-radius: 100%;
+	animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle2 {
+	transform: rotate(30deg);
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle3 {
+	transform: rotate(60deg);
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle4 {
+	transform: rotate(90deg);
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle5 {
+	transform: rotate(120deg);
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle6 {
+	transform: rotate(150deg);
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle7 {
+	transform: rotate(180deg);
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle8 {
+	transform: rotate(210deg);
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle9 {
+	transform: rotate(240deg);
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle10 {
+	transform: rotate(270deg);
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle11 {
+	transform: rotate(300deg);
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle12 {
+	transform: rotate(330deg);
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle2:before {
+	animation-delay: -1.1s;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle3:before {
+	animation-delay: -1s;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle4:before {
+	animation-delay: -0.9s;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle5:before {
+	animation-delay: -0.8s;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle6:before {
+	animation-delay: -0.7s;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle7:before {
+	animation-delay: -0.6s;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle8:before {
+	animation-delay: -0.5s;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle9:before {
+	animation-delay: -0.4s;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle10:before {
+	animation-delay: -0.3s;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle11:before {
+	animation-delay: -0.2s;
+}
+
+.demo .greenspin.sk-fading-circle .sk-circle12:before {
+	animation-delay: -0.1s;
+}
+
+.demo .greenspin.sk-folding-cube {
+	margin: 40px auto;
+	width: 40px;
+	height: 40px;
+	position: relative;
+	transform: rotateZ(45deg);
+}
+
+.demo .greenspin.sk-folding-cube .sk-cube {
+	float: left;
+	width: 50%;
+	height: 50%;
+	position: relative;
+	transform: scale(1.1);
+}
+
+.demo .greenspin.sk-folding-cube .sk-cube:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #40b527;
+	animation: sk-foldCubeAngle 2.4s infinite linear both;
+	transform-origin: 100% 100%;
+}
+
+.demo .greenspin.sk-folding-cube .sk-cube2 {
+	transform: scale(1.1) rotateZ(90deg);
+}
+
+.demo .greenspin.sk-folding-cube .sk-cube3 {
+	transform: scale(1.1) rotateZ(180deg);
+}
+
+.demo .greenspin.sk-folding-cube .sk-cube4 {
+	transform: scale(1.1) rotateZ(270deg);
+}
+
+.demo .greenspin.sk-folding-cube .sk-cube2:before {
+	animation-delay: 0.3s;
+}
+
+.demo .greenspin.sk-folding-cube .sk-cube3:before {
+	animation-delay: 0.6s;
+}
+
+.demo .greenspin.sk-folding-cube .sk-cube4:before {
+	animation-delay: 0.9s;
 }

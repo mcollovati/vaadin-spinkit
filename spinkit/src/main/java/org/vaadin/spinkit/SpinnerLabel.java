@@ -2,6 +2,7 @@ package org.vaadin.spinkit;
 
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Label;
+import org.vaadin.spinkit.shared.SpinnerType;
 
 import java.util.Objects;
 
@@ -16,6 +17,7 @@ public class SpinnerLabel extends Label {
 
     public SpinnerLabel(SpinnerType spinnerType) {
         super("", ContentMode.HTML);
+        setPrimaryStyleName("spinkit");
         this.spinnerType = Objects.requireNonNull(spinnerType);
         setSizeUndefined();
         applyChanges();
@@ -64,10 +66,9 @@ public class SpinnerLabel extends Label {
     }
 
     private void applyChanges() {
-        //addStyleName(this.spinnerType.getStyle());
-        super.setValue(String.format("<span>%s<span><div class=\"%s\">%s</div>",
+        super.setValue(String.format("<span>%s<span><div class=\"%s %s\">%s</div>",
                 Objects.toString(value, ""), this.getPrimaryStyleName(),
-                this.spinnerType.getHtml()));
+            this.spinnerType.getStyle(), this.spinnerType.getHtml()));
     }
 
 }

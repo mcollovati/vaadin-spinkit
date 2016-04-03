@@ -9,11 +9,14 @@
       </div>
  *
  */
-@mixin sk-folding-cube {
-.sk-folding-cube {
+
+$sk-folding-cube-animation-duration: 2.4s;
+
+@mixin sk-folding-cube($primary-stylename: $spinkit-primary-stylename,
+                        $animation-duration: $sk-folding-cube-animation-duration) {
+.#{$primary-stylename}.sk-folding-cube {
   $cubeCount: 4;
-  $animationDuration: 2.4s;
-  $delayRange: $animationDuration/2;
+  $delayRange: $animation-duration / 2;
 
   margin: $spinkit-spinner-margin;
   width: $spinkit-size;
@@ -37,7 +40,7 @@
     width: 100%;
     height: 100%;
     background-color: $spinkit-spinner-color;
-    animation: sk-foldCubeAngle $animationDuration infinite linear both;
+    animation: sk-foldCubeAngle $animation-duration infinite linear both;
     transform-origin: 100% 100%;
   }
 
