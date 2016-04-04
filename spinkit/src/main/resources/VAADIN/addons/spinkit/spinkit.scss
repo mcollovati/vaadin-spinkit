@@ -1,7 +1,9 @@
 @import "../../themes/valo/util/bourbon/bourbon";
 @import "variables.scss";
+@import "sizes.scss";
 @import "spinners/all";
 
 @mixin spinkit {
+    @include spinkit-sizes;
     @include spinkit-spinners;
 }

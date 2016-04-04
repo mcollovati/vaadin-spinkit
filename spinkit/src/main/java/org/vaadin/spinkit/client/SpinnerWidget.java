@@ -7,7 +7,7 @@ public class SpinnerWidget extends Widget {
 
 	public SpinnerWidget() {
 		setElement(DOM.createDiv());
-		setStylePrimaryName("spinkit");
+		setStylePrimaryName("sk");
 	}
 
 }

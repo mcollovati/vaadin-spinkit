@@ -11,20 +11,17 @@
 $sk-double-bounce-opacity: 0.6 !default;
 $sk-double-bounce-animation-duration: 2.0s !default;
 
-@mixin sk-double-bounce($primary-stylename: $spinkit-primary-stylename,
+@mixin sk-double-bounce($primary-stylename: $sk-primary-stylename,
   $opacity: $sk-double-bounce-opacity,
   $animation-duration: $sk-double-bounce-animation-duration) {
   .#{$primary-stylename}.sk-double-bounce {
-    width: $spinkit-size;
-    height: $spinkit-size;
     position: relative;
-    margin: $spinkit-spinner-margin;
 
     .sk-child {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background-color: $spinkit-spinner-color;
+      background-color: $sk-spinner-color;
       opacity: $opacity;
       position: absolute;
       top: 0;

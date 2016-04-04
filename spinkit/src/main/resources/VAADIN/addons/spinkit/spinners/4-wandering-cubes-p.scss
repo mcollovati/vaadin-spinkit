@@ -10,29 +10,34 @@
 
 $sk-wandering-cubes-cube-distance: 90% !default;
 $sk-wandering-cubes-animation-duration: 1.8s !default;
+//$sk-wandering-cubes-cube-size: 28% !default;
 $sk-wandering-cubes-cube-size: 28% !default;
 
-@mixin sk-wandering-cubes($primary-stylename: $spinkit-primary-stylename,
+@mixin sk-wandering-cubes($primary-stylename: $sk-primary-stylename,
   $animation-duration: $sk-wandering-cubes-animation-duration,
   $cube-size: $sk-wandering-cubes-cube-size
 ) {
 .#{$primary-stylename}.sk-wandering-cubes {
 
-  margin: $spinkit-spinner-margin;
-  width: $spinkit-size;
-  height: $spinkit-size;
   position: relative;
 
   .sk-cube {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: $sk-default-size;
+    height: $sk-default-size;
     @include animation(sk-wanderingCube-xy $animation-duration ease-in-out #{-$animation-duration} infinite both);
   }
 
+  &.#{$primary-stylename}-xs .sk-cube { width: $sk-xs-size; height: $sk-xs-size }
+  &.#{$primary-stylename}-sm .sk-cube  { width: $sk-sm-size; height: $sk-sm-size }
+  &.#{$primary-stylename}-md .sk-cube  { width: $sk-md-size; height: $sk-md-size }
+  &.#{$primary-stylename}-lg .sk-cube  { width: $sk-lg-size; height: $sk-lg-size }
+  &.#{$primary-stylename}-xl .sk-cube  { width: $sk-xl-size; height: $sk-xl-size }
+
+
   .sk-cube:before {
     content: "";
-    background-color: $spinkit-spinner-color;
+    background-color: $sk-spinner-color;
     width: $cube-size;
     height: $cube-size;
     position: absolute;

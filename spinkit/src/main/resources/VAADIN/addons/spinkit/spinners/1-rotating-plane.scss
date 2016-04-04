@@ -16,13 +16,10 @@
 
 $sk-rotating-plane-animation-duration: 1.2s !default;
 
-@mixin sk-rotating-plane($primary-stylename: $spinkit-primary-stylename,
+@mixin sk-rotating-plane($primary-stylename: $sk-primary-stylename,
   $animation-duration: $sk-rotating-plane-animation-duration) {
   .#{$primary-stylename}.sk-rotating-plane {
-    width: $spinkit-size;
-    height: $spinkit-size;
-    background-color: $spinkit-spinner-color;
-    margin: $spinkit-spinner-margin;
+    background-color: $sk-spinner-color;
     @include animation(sk-rotatePlane $animation-duration infinite ease-in-out);
   }
 }

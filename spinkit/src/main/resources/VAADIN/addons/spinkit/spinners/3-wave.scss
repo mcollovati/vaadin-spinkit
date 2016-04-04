@@ -12,25 +12,49 @@
  */
 $sk-wave-animation-duration: 1.2s !default;
 
-@mixin sk-wave($primary-stylename: $spinkit-primary-stylename,
+@mixin sk-wave($primary-stylename: $sk-primary-stylename,
   $animation-duration: $sk-wave-animation-duration) {
 .#{$primary-stylename}.sk-wave {
   $rectCount: 5;
   $delayRange: 0.4s;
 
-  margin: $spinkit-spinner-margin;
-  width: $spinkit-size * 1.25;
-  height: $spinkit-size;
   text-align: center;
-  font-size: 10px;
+  font-size: $sk-default-size / 4;
 
   .sk-rect {
-    background-color: $spinkit-spinner-color;
+    background-color: $sk-spinner-color;
     height: 100%;
-    width: (100% / $rectCount) - (1% * $rectCount);
+    //width: (100% / $rectCount) - (1% * $rectCount);
+    width: $sk-default-size * 0.15;
     margin: 0 1% * $rectCount 0 0;
     display: inline-block;
     @include animation(sk-waveStretchDelay $animation-duration infinite ease-in-out);
+  }
+
+  &.#{$primary-stylename}-xs {
+    width: $sk-xs-size * 1.25;
+    font-size: $sk-xs-size / 4;
+    & .sk-rect { width: $sk-xs-size * 0.15 }
+  }
+  &.#{$primary-stylename}-sm {
+    width: $sk-sm-size * 1.25;
+    font-size: $sk-sm-size / 4;
+    & .sk-rect { width: $sk-sm-size * 0.15 }
+  }
+  &.#{$primary-stylename}-md {
+    width: $sk-md-size * 1.25;
+    font-size: $sk-md-size / 4;
+    & .sk-rect { width: $sk-md-size * 0.15 }
+  }
+  &.#{$primary-stylename}-lg {
+    width: $sk-lg-size * 1.25;
+    font-size: $sk-lg-size / 4;
+    & .sk-rect { width: $sk-lg-size * 0.15 }
+  }
+  &.#{$primary-stylename}-xl {
+    width: $sk-xl-size * 1.25;
+    font-size: $sk-xl-size / 4;
+    & .sk-rect { width: $sk-xl-size * 0.15 }
   }
 
   @for $i from 1 through $rectCount {

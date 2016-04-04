@@ -20,14 +20,11 @@
 
 $sk-circle-animation-duration: 1.2s !default;
 
-@mixin sk-circle($primary-stylename: $spinkit-primary-stylename,
+@mixin sk-circle($primary-stylename: $sk-primary-stylename,
                  $animation-duration: $sk-circle-animation-duration) {
 .#{$primary-stylename}.sk-circle {
   $circleCount: 12;
 
-  margin: $spinkit-spinner-margin;
-  width: $spinkit-size;
-  height: $spinkit-size;
   position: relative;
 
   .sk-child {
@@ -44,7 +41,7 @@ $sk-circle-animation-duration: 1.2s !default;
     margin: 0 auto;
     width: 15%;
     height: 15%;
-    background-color: $spinkit-spinner-color;
+    background-color: $sk-spinner-color;
     border-radius: 100%;
     animation: sk-circleBounceDelay $animation-duration infinite ease-in-out both;
   }

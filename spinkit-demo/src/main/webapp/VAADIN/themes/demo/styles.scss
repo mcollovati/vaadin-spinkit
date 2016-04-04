@@ -21,18 +21,13 @@ $darkgreen: darken($green, 30%);
 		background-repeat: no-repeat;
 	}
 
-	$spinkit-spinner-color: $green;
-	$spinkit-primary-stylename: greenspin;
 
-	@include spinkit-spinners;
-	/*
-	@include sk-wandering-cubes($primary-stylename: greenspin);
-	@include sk-rotating-plane($primary-stylename: greenspin);
-	@include sk-double-bounce($primary-stylename: greenspin);
-	@include sk-wave($primary-stylename: greenspin);
-	@include sk-spinner-pulse($primary-stylename: greenspin);
-	@include sk-chasing-dots($primary-stylename: greenspin);
-	@include sk-three-bounce($primary-stylename: greenspin);
-    */
+    // Custom spinners
+	$sk-spinner-color: $green;
+	$sk-primary-stylename: greenspin;
+	@include spinkit;
+
+    $sk-spinner-color: pink;
+    @include sk-double-bounce(greenspin,  0.2, 10.0s);
 
 }

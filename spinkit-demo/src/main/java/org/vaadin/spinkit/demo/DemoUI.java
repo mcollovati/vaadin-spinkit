@@ -14,6 +14,7 @@ import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 import org.vaadin.spinkit.Spinner;
 import org.vaadin.spinkit.SpinnerLabel;
+import org.vaadin.spinkit.shared.SpinnerSize;
 import org.vaadin.spinkit.shared.SpinnerType;
 
 import java.util.Arrays;
@@ -36,6 +37,16 @@ public class DemoUI extends UI {
 
     @Override
     protected void init(VaadinRequest request) {
+        TabSheet tabSheet = new TabSheet();
+        tabSheet.setSizeFull();
+        tabSheet.addStyleName(ValoTheme.TABSHEET_CENTERED_TABS);
+        tabSheet.addTab(spinnersContainer()).setCaption("Spinners");
+        tabSheet.addTab(spinnerSizesContainer()).setCaption("Sizes");
+        tabSheet.addTab(spinnersContainer("greenspin")).setCaption("Themed Spinners");
+
+
+        setContent(tabSheet);
+        /*
         VerticalLayout layout = new VerticalLayout();
         layout.setDefaultComponentAlignment(Alignment.TOP_CENTER);
 
@@ -49,6 +60,7 @@ public class DemoUI extends UI {
         layout.setExpandRatio(layout.getComponent(layout.getComponentCount()-1),1);
 
         setContent(layout);
+        */
     }
 
     private Label title(String title) {
@@ -58,11 +70,17 @@ public class DemoUI extends UI {
         return label;
     }
 
-    private HorizontalLayout spinnersContainer() {
+    private Component spinnersContainer() {
         return spinnersContainer(null);
     }
-    private HorizontalLayout spinnersContainer(String primaryStyleName) {
-        HorizontalLayout spinners = new HorizontalLayout();
+
+    private Component spinnersContainer(String primaryStyleName) {
+        int types = SpinnerType.values().length;
+        GridLayout spinners = new GridLayout(4, (types / 4 + types % 4));
+        spinners.setSizeFull();
+        spinners.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+        spinners.setSpacing(true);
+        //HorizontalLayout spinners = new HorizontalLayout();
         spinners.setWidth(100, Unit.PERCENTAGE);
         StringToEnumConverter converter = new StringToEnumConverter();
         for (SpinnerType type : SpinnerType.values()) {
@@ -75,6 +93,45 @@ public class DemoUI extends UI {
         }
         return spinners;
     }
+
+    private Component spinnerSizesContainer() {
+        int types = SpinnerSize.values().length;
+        GridLayout spinners = new GridLayout(4, (types / 4 + types % 4));
+        spinners.setSizeFull();
+        spinners.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
+        spinners.setSpacing(true);
+
+        ComboBox selector = new ComboBox("Select spinner type", Arrays.asList(SpinnerType.values()));
+        selector.setNullSelectionAllowed(false);
+        selector.setPageLength(0);
+        selector.setValue(SpinnerType.ROTATING_PLANE);
+        selector.addValueChangeListener(e -> {
+            for (Component c : spinners) {
+                if (c instanceof Spinner) {
+                    ((Spinner) c).setType((SpinnerType) selector.getValue());
+                }
+            }
+        });
+
+        StringToEnumConverter converter = new StringToEnumConverter();
+        for (SpinnerSize size : SpinnerSize.values()) {
+            Spinner spinner = new Spinner(SpinnerType.ROTATING_PLANE);
+            spinner.setSize(size);
+            spinner.setCaption(converter.convertToPresentation(size, String.class, getLocale()));
+            spinners.addComponent(spinner);
+        }
+
+        VerticalLayout l = new VerticalLayout();
+        l.setDefaultComponentAlignment(Alignment.TOP_CENTER);
+        l.setSizeFull();
+        l.setMargin(false);
+        l.setSpacing(true);
+        l.addComponents(selector, spinners);
+        l.setExpandRatio(spinners,1);
+        return l;
+    }
+
+
     private HorizontalLayout labelSpinnersContainer() {
         HorizontalLayout spinners = new HorizontalLayout();
         spinners.setWidth(100, Unit.PERCENTAGE);
@@ -86,80 +143,6 @@ public class DemoUI extends UI {
             spinners.addComponent(spinner);
         }
         return spinners;
-    }
-
-
-    protected void initOld(VaadinRequest request) {
-
-        // Initialize our new UI component
-
-        SpinnerType initialType = SpinnerType.ROTATING_PLANE;
-        widgetSpinner = new Spinner(initialType);
-        widgetSpinnerCustomStyle = new Spinner(initialType);
-        widgetSpinnerCustomStyle.setPrimaryStyleName("greenspin");
-        labelSpinner = new SpinnerLabel(initialType);
-
-        // Show it in the middle of the screen
-        final HorizontalLayout layout = new HorizontalLayout();
-        layout.setMargin(true);
-        layout.setSpacing(true);
-        layout.setSizeFull();
-
-        widgetSpinner.setCaption("Manudulis");
-        layout.addComponent(new Label("Spinner"));
-        layout.addComponent(widgetSpinner);
-
-        layout.addComponent(new Label("Spinner (greenspin style)"));
-        layout.addComponent(widgetSpinnerCustomStyle);
-
-        layout.addComponent(new Label("SpinnerLabel"));
-        layout.addComponent(labelSpinner);
-
-
-        VerticalLayout mainLayout = new VerticalLayout();
-        mainLayout.setStyleName("demoContentLayout");
-        mainLayout.setMargin(true);
-        mainLayout.setSpacing(true);
-        mainLayout.setSizeFull();
-        mainLayout.addComponent(createTools(initialType));
-        mainLayout.addComponent(layout);
-        mainLayout.setExpandRatio(layout, 1);
-        setContent(mainLayout);
-    }
-
-    private HorizontalLayout createTools(SpinnerType initialType) {
-        ComboBox selector = new ComboBox("Select spinner type", Arrays.asList(SpinnerType.values()));
-        selector.setNullSelectionAllowed(false);
-        selector.setPageLength(0);
-        selector.setValue(initialType);
-        selector.addValueChangeListener(e -> {
-            widgetSpinner.setType((SpinnerType) e.getProperty().getValue());
-            widgetSpinnerCustomStyle.setType((SpinnerType) e.getProperty().getValue());
-            labelSpinner.setSpinnerType((SpinnerType) e.getProperty().getValue());
-        });
-        TextField size = new TextField("Size (from 10px to 200px)");
-        size.setNullRepresentation("");
-        size.setImmediate(true);
-        size.setConverter(new StringToFloatConverter());
-        size.addValidator(new FloatRangeValidator("Size must be between 10px and 200px", 10f, 200f));
-        size.addValueChangeListener(e -> {
-            if (size.isValid()) {
-                try {
-                    Float fsize = (Float) size.getConvertedValue();
-                    widgetSpinner.setWidth(fsize, Unit.PIXELS);
-                    widgetSpinner.setHeight(fsize, Unit.PIXELS);
-                    widgetSpinnerCustomStyle.setWidth(fsize, Unit.PIXELS);
-                    widgetSpinnerCustomStyle.setHeight(fsize, Unit.PIXELS);
-                    labelSpinner.setWidth(fsize, Unit.PIXELS);
-                    labelSpinner.setHeight(fsize, Unit.PIXELS);
-                    labelSpinner.setValue("Size is now " + fsize);
-                } catch (Exception ex) {
-                }
-            }
-        });
-
-        HorizontalLayout topLayout = new HorizontalLayout(selector, size);
-        return topLayout;
     }
 
 

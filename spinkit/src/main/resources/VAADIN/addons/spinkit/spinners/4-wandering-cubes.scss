@@ -11,17 +11,17 @@
 $wandering-cubes-cube-distance: 90% !default;
 $wandering-cubes-animation-duration: 1.8s !default;
 
-@mixin sk-wandering-cubes($primary-stylename: $spinkit-primary-stylename, $cubeDistance: $wandering-cubes-cube-distance,
+@mixin sk-wandering-cubes($primary-stylename: $sk-primary-stylename, $cubeDistance: $wandering-cubes-cube-distance,
         $animationDuration: $wandering-cubes-animation-duration) {
 .#{$primary-stylename}.sk-wandering-cubes {
 
-  margin: $spinkit-spinner-margin;
-  width: $spinkit-size;
-  height: $spinkit-size;
+  margin: $sk-spinner-margin;
+  width: $sk-size;
+  height: $sk-size;
   position: relative;
 
   .sk-cube {
-    background-color: $spinkit-spinner-color;
+    background-color: $sk-spinner-color;
     width: 10px;
     height: 10px;
     position: absolute;

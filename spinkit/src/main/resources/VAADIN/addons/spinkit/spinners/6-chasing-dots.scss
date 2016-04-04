@@ -10,14 +10,11 @@
 
 $sk-chasing-dot-animation-duration: 2.0s !default;
 
-@mixin sk-chasing-dots($primary-stylename: $spinkit-primary-stylename,
+@mixin sk-chasing-dots($primary-stylename: $sk-primary-stylename,
                         $animation-duration: $sk-chasing-dot-animation-duration) {
 .#{$primary-stylename}.sk-chasing-dots {
   $animationDuration: 2.0s;
 
-  margin: $spinkit-spinner-margin;
-  width: $spinkit-size;
-  height: $spinkit-size;
   position: relative;
   text-align: center;
   @include animation(sk-chasingDotsRotate $animation-duration infinite linear);
@@ -28,7 +25,7 @@ $sk-chasing-dot-animation-duration: 2.0s !default;
     display: inline-block;
     position: absolute;
     top: 0;
-    background-color: $spinkit-spinner-color;
+    background-color: $sk-spinner-color;
     border-radius: 100%;
     @include animation(sk-chasingDotsBounce $animation-duration infinite ease-in-out);
   }

@@ -11,23 +11,44 @@
 
 $sk-three-bounce-animation-duration: 1.4s !default;
 
-@mixin sk-three-bounce($primary-stylename: $spinkit-primary-stylename,
+@mixin sk-three-bounce($primary-stylename: $sk-primary-stylename,
     $animation-duration: $sk-three-bounce-animation-duration) {
 .#{$primary-stylename}.sk-three-bounce {
 
   $delayRange: $animation-duration / 4.38;
-  margin: $spinkit-spinner-margin;
-  width: $spinkit-size * 2;
+  width: $sk-default-size * 2;
   text-align: center;
 
   .sk-child {
-    width: $spinkit-size / 2;
-    height: $spinkit-size / 2;
-    background-color: $spinkit-spinner-color;
+    width: $sk-default-size / 2;
+    height: $sk-default-size / 2;
+    background-color: $sk-spinner-color;
 
     border-radius: 100%;
     display: inline-block;
     @include animation(sk-three-bounce $animation-duration ease-in-out 0s infinite both);
+  }
+
+  &.#{$primary-stylename}-xs {
+    // Made smaller than the others to make border-radius behave
+    width: $sk-xs-size * 2.5;
+    .sk-child { width: $sk-xs-size / 2.5; height: $sk-xs-size / 2.5}
+  }
+  &.#{$primary-stylename}-sm {
+    width: $sk-sm-size * 2;
+    .sk-child { width: $sk-sm-size / 2; height: $sk-sm-size / 2}
+  }
+  &.#{$primary-stylename}-md {
+    width: $sk-md-size * 2;
+    .sk-child { width: $sk-md-size / 2; height: $sk-md-size / 2}
+  }
+  &.#{$primary-stylename}-lg {
+    width: $sk-lg-size * 2;
+    .sk-child { width: $sk-lg-size / 2; height: $sk-lg-size / 2}
+  }
+  &.#{$primary-stylename}-xl {
+    width: $sk-xl-size * 2;
+    .sk-child { width: $sk-xl-size / 2; height: $sk-xl-size / 2}
   }
 
   .sk-bounce1 { @include animation-delay(-$delayRange); }

@@ -20,14 +20,11 @@
 
 $sk-fading-circle-animation-duration: 1.2s;
 
-@mixin sk-fading-circle($primary-stylename: $spinkit-primary-stylename,
+@mixin sk-fading-circle($primary-stylename: $sk-primary-stylename,
                            $animation-duration: $sk-fading-circle-animation-duration) {
 .#{$primary-stylename}.sk-fading-circle {
   $circleCount: 12;
 
-  margin: $spinkit-spinner-margin;
-  width: $spinkit-size;
-  height: $spinkit-size;
   position: relative;
 
   .sk-circle {
@@ -44,7 +41,7 @@ $sk-fading-circle-animation-duration: 1.2s;
     margin: 0 auto;
     width: 15%;
     height: 15%;
-    background-color: $spinkit-spinner-color;
+    background-color: $sk-spinner-color;
     border-radius: 100%;
     animation: sk-circleFadeDelay $animation-duration infinite ease-in-out both;
   }
