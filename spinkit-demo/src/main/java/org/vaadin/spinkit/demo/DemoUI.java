@@ -4,31 +4,23 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.util.converter.StringToEnumConverter;
-import com.vaadin.data.util.converter.StringToFloatConverter;
-import com.vaadin.data.validator.FloatRangeValidator;
-import com.vaadin.server.FontAwesome;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
-
 import com.vaadin.ui.themes.ValoTheme;
 import org.vaadin.spinkit.Spinner;
 import org.vaadin.spinkit.SpinnerLabel;
 import org.vaadin.spinkit.shared.SpinnerSize;
 import org.vaadin.spinkit.shared.SpinnerType;
 
-import java.util.Arrays;
-
 import javax.servlet.annotation.WebServlet;
+import java.util.Arrays;
 
 @Theme("demo")
 @Title("Vaadin Spinkit Add-on Demo")
 @SuppressWarnings("serial")
 public class DemoUI extends UI {
 
-    private Spinner widgetSpinner;
-    private Spinner widgetSpinnerCustomStyle;
-    private SpinnerLabel labelSpinner;
 
     @WebServlet(value = "/*", asyncSupported = true)
     @VaadinServletConfiguration(productionMode = false, ui = DemoUI.class, widgetset = "org.vaadin.spinkit.demo.DemoWidgetSet")
@@ -43,31 +35,7 @@ public class DemoUI extends UI {
         tabSheet.addTab(spinnersContainer()).setCaption("Spinners");
         tabSheet.addTab(spinnerSizesContainer()).setCaption("Sizes");
         tabSheet.addTab(spinnersContainer("greenspin")).setCaption("Themed Spinners");
-
-
         setContent(tabSheet);
-        /*
-        VerticalLayout layout = new VerticalLayout();
-        layout.setDefaultComponentAlignment(Alignment.TOP_CENTER);
-
-        layout.addComponent(title("Default spinners"));
-        layout.addComponent(spinnersContainer());
-        layout.addComponent(title("Themed spinners"));
-        layout.addComponent(spinnersContainer("greenspin"));
-        layout.addComponent(title("Label spinners"));
-
-        layout.addComponent(labelSpinnersContainer());
-        layout.setExpandRatio(layout.getComponent(layout.getComponentCount()-1),1);
-
-        setContent(layout);
-        */
-    }
-
-    private Label title(String title) {
-        Label label = new Label(title);
-        label.addStyleName(ValoTheme.LABEL_H2);
-        label.addStyleName(ValoTheme.LABEL_COLORED);
-        return label;
     }
 
     private Component spinnersContainer() {
@@ -80,7 +48,6 @@ public class DemoUI extends UI {
         spinners.setSizeFull();
         spinners.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
         spinners.setSpacing(true);
-        //HorizontalLayout spinners = new HorizontalLayout();
         spinners.setWidth(100, Unit.PERCENTAGE);
         StringToEnumConverter converter = new StringToEnumConverter();
         for (SpinnerType type : SpinnerType.values()) {
