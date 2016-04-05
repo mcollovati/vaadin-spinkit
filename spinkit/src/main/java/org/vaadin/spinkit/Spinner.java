@@ -21,7 +21,6 @@ import org.vaadin.spinkit.shared.SpinnerType;
 
 public class Spinner extends com.vaadin.ui.AbstractComponent {
 
-
     public Spinner(SpinnerType type) {
         setType(type);
         setSize(SpinnerSize.DEFAULT);
