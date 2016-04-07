@@ -1,12 +1,12 @@
 /**
  * Copyright (C) 2016 Marco Collovati (mcollovati@gmail.com)
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -27,6 +27,10 @@ import org.vaadin.spinkit.Spinner;
 import org.vaadin.spinkit.SpinnerLabel;
 import org.vaadin.spinkit.shared.SpinnerSize;
 import org.vaadin.spinkit.shared.SpinnerType;
+import org.vaadin.viritin.label.MLabel;
+import org.vaadin.viritin.label.RichText;
+import org.vaadin.viritin.layouts.MHorizontalLayout;
+import org.vaadin.viritin.layouts.MVerticalLayout;
 
 import javax.servlet.annotation.WebServlet;
 import java.util.Arrays;
@@ -44,13 +48,31 @@ public class DemoUI extends UI {
 
     @Override
     protected void init(VaadinRequest request) {
+
+
+
         TabSheet tabSheet = new TabSheet();
         tabSheet.setSizeFull();
         tabSheet.addStyleName(ValoTheme.TABSHEET_CENTERED_TABS);
         tabSheet.addTab(spinnersContainer()).setCaption("Spinners");
         tabSheet.addTab(spinnerSizesContainer()).setCaption("Sizes");
         tabSheet.addTab(spinnersContainer("greenspin")).setCaption("Themed Spinners");
-        setContent(tabSheet);
+        tabSheet.addTab(new RichText().withMarkDown(getClass().getResourceAsStream("source.md"))).setCaption("Source code");
+        //layout.addComponent(tabSheet);
+        //layout.expand(tabSheet);
+        RichText info = new RichText()
+            .withMarkDown(getClass().getResourceAsStream("about.md"));
+
+
+        MVerticalLayout layout = new MVerticalLayout()
+            .withMargin(true)
+            .with(info).expand(tabSheet)
+            .withFullHeight().withFullWidth();
+
+        //layout.setExpandRatio(info, 1);
+        //layout.setExpandRatio(tabSheet, 4);
+
+        setContent(layout);
     }
 
     private Component spinnersContainer() {
@@ -109,7 +131,7 @@ public class DemoUI extends UI {
         l.setMargin(false);
         l.setSpacing(true);
         l.addComponents(selector, spinners);
-        l.setExpandRatio(spinners,1);
+        l.setExpandRatio(spinners, 1);
         return l;
     }
 

@@ -19,30 +19,60 @@ import org.vaadin.spinkit.shared.SpinnerSize;
 import org.vaadin.spinkit.shared.SpinnerState;
 import org.vaadin.spinkit.shared.SpinnerType;
 
+/**
+ * A spinner component
+ *
+ * @author Marco Collovati
+ */
 public class Spinner extends com.vaadin.ui.AbstractComponent {
 
+    /**
+     * Creates a new spinner for the given type
+     *
+     * @param type The spinner type
+     */
     public Spinner(SpinnerType type) {
         setType(type);
         setSize(SpinnerSize.DEFAULT);
         setSizeUndefined();
     }
 
+    /**
+     * Sets the type of the spinner
+     *
+     * @param type The spinner type
+     */
     public void setType(SpinnerType type) {
         if (getState(false).type != type) {
             getState().type = type;
         }
     }
 
+    /**
+     * Sets the spinner size
+     *
+     * @param size The spinner size
+     */
     public void setSize(SpinnerSize size) {
         if (getState(false).size != size) {
             getState().size = size;
         }
     }
 
+    /**
+     * Returns the spinner size
+     *
+     * @return the spinner size
+     */
     public SpinnerSize getSize() {
         return getState(false).size;
     }
 
+    /**
+     * Returns the spinner type
+     *
+     * @return the spinner type
+     */
     public SpinnerType getType() {
         return getState(false).type;
     }
@@ -58,30 +88,81 @@ public class Spinner extends com.vaadin.ui.AbstractComponent {
     }
 
     // Fluent
+
+    /**
+     * Sets given styles
+     *
+     * @param style styles to apply to the spinner
+     * @return the spinner instance
+     */
+    public Spinner withStyleName(String... style) {
+        for (String s : style) {
+            this.setStyleName(s);
+        }
+        return this;
+    }
+
+    /**
+     * Sets the spinner type
+     *
+     * @param type the spinner type
+     * @return the spinner instances
+     */
     public Spinner withType(SpinnerType type) {
         setType(type);
         return this;
     }
+
+    /**
+     * Sets the spinner size to extra small
+     *
+     * @return the spinner instances
+     */
     public Spinner extraSmall() {
         setSize(SpinnerSize.XS);
         return this;
     }
+    /**
+     * Sets the spinner size to small
+     *
+     * @return the spinner instances
+     */
     public Spinner small() {
         setSize(SpinnerSize.SM);
         return this;
     }
+    /**
+     * Sets the spinner size to medium
+     *
+     * @return the spinner instances
+     */
     public Spinner medium() {
         setSize(SpinnerSize.MD);
         return this;
     }
+    /**
+     * Sets the spinner size to default
+     *
+     * @return the spinner instances
+     */
     public Spinner defaultSize() {
         setSize(SpinnerSize.DEFAULT);
         return this;
     }
+    /**
+     * Sets the spinner size to large
+     *
+     * @return the spinner instances
+     */
     public Spinner large() {
         setSize(SpinnerSize.LG);
         return this;
     }
+    /**
+     * Sets the spinner size to extra large
+     *
+     * @return the spinner instances
+     */
     public Spinner extraLarge() {
         setSize(SpinnerSize.XL);
         return this;
