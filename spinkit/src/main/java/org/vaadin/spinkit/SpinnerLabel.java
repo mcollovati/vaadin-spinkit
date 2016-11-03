@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016 Marco Collovati (mcollovati@gmail.com)
+ * Copyright (C) 2016-2017 Marco Collovati (mcollovati@gmail.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,8 @@
  */
 package org.vaadin.spinkit;
 
-import com.vaadin.shared.ui.label.ContentMode;
+
+import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Label;
 import org.vaadin.spinkit.shared.SpinnerType;
 

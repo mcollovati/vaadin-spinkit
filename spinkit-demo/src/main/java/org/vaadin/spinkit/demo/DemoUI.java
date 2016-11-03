@@ -1,12 +1,12 @@
 /**
- * Copyright (C) 2016 Marco Collovati (mcollovati@gmail.com)
- * <p>
+ * Copyright (C) 2016-2017 Marco Collovati (mcollovati@gmail.com)
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -18,18 +18,23 @@ package org.vaadin.spinkit.demo;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
-import com.vaadin.data.util.converter.StringToEnumConverter;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.TabSheet;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
+import com.vaadin.v7.data.util.converter.StringToEnumConverter;
+import com.vaadin.v7.ui.ComboBox;
 import org.vaadin.spinkit.Spinner;
 import org.vaadin.spinkit.SpinnerLabel;
 import org.vaadin.spinkit.shared.SpinnerSize;
 import org.vaadin.spinkit.shared.SpinnerType;
-import org.vaadin.viritin.label.MLabel;
 import org.vaadin.viritin.label.RichText;
-import org.vaadin.viritin.layouts.MHorizontalLayout;
 import org.vaadin.viritin.layouts.MVerticalLayout;
 
 import javax.servlet.annotation.WebServlet;

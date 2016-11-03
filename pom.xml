@@ -5,8 +5,11 @@
     <groupId>org.vaadin</groupId>
     <artifactId>spinkit-root</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
     <name>Spinkit Add-on Root Project</name>
+    <prerequisites>
+        <maven>3.0</maven>
+    </prerequisites>
 
 	<organization>
 		<name>Marco Collovati</name>

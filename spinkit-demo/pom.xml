@@ -5,20 +5,23 @@
     <groupId>org.vaadin</groupId>
     <artifactId>spinkit-demo</artifactId>
     <packaging>war</packaging>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
     <name>MyComponent Add-on Demo</name>
+    <prerequisites>
+        <maven>3.0</maven>
+    </prerequisites>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>7.5.6</vaadin.version>
+        <vaadin.version>8.0.2</vaadin.version>
         <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
     </properties>
 
     <organization>
-        <name>My Name</name>
+        <name>Marco Collovati</name>
         <url>https://github.com/mcollovati</url>
     </organization>
-    <inceptionYear>2016</inceptionYear>
+    <inceptionYear>2016-2017</inceptionYear>
     <issueManagement>
         <system>GitHub</system>
         <url>https://github.com/mcollovati/vaadin-spinkit/issues</url>
@@ -87,15 +90,34 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-client-compiler</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-compatibility-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-compatibility-shared</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-compatibility-client</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-themes</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-compatibility-themes</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.vaadin</groupId>
             <artifactId>viritin</artifactId>
-            <version>1.49</version>
+            <!-- <version>1.61v8-SNAPSHOT</version> -->
+            <version>2.0.alpha1</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -111,7 +133,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
+                <version>3.5.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -120,7 +142,7 @@
 
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>2.4.1</version>
+                <version>2.5</version>
                 <configuration>
                     <filesets>
                         <fileset>
@@ -159,13 +181,13 @@
                 <artifactId>vaadin-maven-plugin</artifactId>
                 <version>${vaadin.plugin.version}</version>
                 <configuration>
-                    <extraJvmArgs>-Xmx512M -Xss1024k</extraJvmArgs>
+                    <extraJvmArgs>-Xmx2048M -Xss1024k</extraJvmArgs>
                     <webappDirectory>${basedir}/src/main/webapp/VAADIN/widgetsets</webappDirectory>
                     <hostedWebapp>${basedir}/src/main/webapp/VAADIN/widgetsets</hostedWebapp>
                     <noServer>true</noServer>
                     <persistentunitcachedir>${basedir}/target/tmp/gwt-unitCache</persistentunitcachedir>
                     <compileReport>true</compileReport>
-                    <strict>true</strict>
+                    <!-- <strict>true</strict> -->
                     <runTarget>http://localhost:8080/</runTarget>
                 </configuration>
                 <executions>
