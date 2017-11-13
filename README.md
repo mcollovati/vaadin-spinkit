@@ -3,7 +3,7 @@
 SpinKit for Vaadin is an UI component add-on for [Vaadin 7](http://vaadin.com) 
 that integrates [SpinKit](http://tobiasahlin.com/spinkit/) CSS spinners.
 
-A live demo is available at http://vaadindemo-mbf.rhcloud.com/spinkit/.
+A live demo is available at https://mbf-vaadin-spinkit.herokuapp.com/
    
 ## Usage
 
@@ -34,7 +34,7 @@ addComponent(spinner3);
 
 ## API
 
-SpinKit for Vaadin JavaDoc is available online at https://vaadindemo-mbf.rhcloud.com/docs/spinkit/api/
+SpinKit for Vaadin JavaDoc is available online at https://mbf-vaadindemo.herokuapp.com/docs/spinkit/api/
 
 ## Building and running demo
 
