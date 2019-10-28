@@ -1,4 +1,4 @@
-# SpinKit Add-on for Vaadin 7
+# SpinKit Add-on for Vaadin
 
 SpinKit for Vaadin is an UI component add-on for [Vaadin 7](http://vaadin.com) 
 that integrates [SpinKit](http://tobiasahlin.com/spinkit/) CSS spinners.
