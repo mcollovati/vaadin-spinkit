@@ -9,6 +9,6 @@ Spinner spinner2 = new Spinner(SpinnerType.CIRCLE).large();
 addComponent(spinner2);
 
 Spinner spinner3 = new Spinner(SpinnerType.FOLDING_CUBE)
-    .small().withStyle("green");
+    .withBaseSize("100px").withColor("green");
 addComponent(spinner3);
 </code></pre>

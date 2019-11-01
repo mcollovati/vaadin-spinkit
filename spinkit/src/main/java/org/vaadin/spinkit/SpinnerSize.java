@@ -13,12 +13,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.vaadin.spinkit.shared;
+package org.vaadin.spinkit;
 
-public class SpinnerState extends com.vaadin.shared.AbstractComponentState {
+/**
+ * Created by marco on 04/04/16.
+ */
+public enum SpinnerSize {
+    /**
+     * Extra Small size
+     */
+    XS("sk-xs"),
+    /**
+     * Small
+     */
+    SM("sk-sm"),
+    /**
+     * Medium
+     */
+    MD("sk-md"),
+    DEFAULT(""),
+    /**
+     * Large
+     */
+    LG("sk-lg"),
+    /**
+     * Extra large
+     */
+    XL("sk-xl");
 
-    public SpinnerType type;
+    private final String size;
 
-    public SpinnerSize size;
+    SpinnerSize(String size) {
+        this.size = size;
+    }
+
+    public String getSize() {
+        return size;
+    }
 
 }

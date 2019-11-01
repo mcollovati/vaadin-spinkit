@@ -1,0 +1,19 @@
+:root {
+    --sk-base-size: var(--sk-size);
+}
+
+.sk-xs {
+    --sk-size: calc(var(--sk-base-size) / 4);
+}
+.sk-sm {
+    --sk-size: calc(var(--sk-base-size) / 2);
+}
+.sk-md {
+    --sk-size: var(--sk-base-size);
+}
+.sk-lg {
+    --sk-size: calc(var(--sk-base-size) * 2);
+}
+.sk-xl {
+    --sk-size: calc(var(--sk-base-size) * 4);
+}
