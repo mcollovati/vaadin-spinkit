@@ -5,23 +5,26 @@
     <groupId>org.vaadin</groupId>
     <artifactId>spinkit-demo</artifactId>
     <packaging>war</packaging>
-    <version>1.0.0</version>
-    <name>MyComponent Add-on Demo</name>
-    <prerequisites>
-        <maven>3.0</maven>
-    </prerequisites>
+    <version>2.0.0-SNAPSHOT</version>
+    <name>Spinkit Add-on Demo</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>8.0.2</vaadin.version>
+        <vaadin.version>14.0.11</vaadin.version>
         <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
+        <flow-viritin.version>0.3.2</flow-viritin.version>
+
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <license-maven-plugin.version>2.11</license-maven-plugin.version>
+        <jetty-maven-plugin.version>9.4.15.v20190215</jetty-maven-plugin.version>
+        <maven-war-plugin.version>2.4</maven-war-plugin.version>
     </properties>
 
     <organization>
         <name>Marco Collovati</name>
         <url>https://github.com/mcollovati</url>
     </organization>
-    <inceptionYear>2016-2017</inceptionYear>
+    <inceptionYear>2016-2019</inceptionYear>
     <issueManagement>
         <system>GitHub</system>
         <url>https://github.com/mcollovati/vaadin-spinkit/issues</url>
@@ -37,31 +40,30 @@
 
     <repositories>
         <repository>
-            <id>vaadin-addons</id>
-            <url>http://maven.vaadin.com/vaadin-addons</url>
+            <id>Vaadin Directory</id>
+            <url>https://maven.vaadin.com/vaadin-addons</url>
+        </repository>
+        <repository>
+            <id>Vaadin prereleases</id>
+            <url>https://maven.vaadin.com/vaadin-prereleases</url>
         </repository>
         <repository>
             <id>vaadin-snapshots</id>
             <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
         </repository>
     </repositories>
 
     <pluginRepositories>
+        <pluginRepository>
+            <id>Vaadin prereleases</id>
+            <url>https://maven.vaadin.com/vaadin-prereleases</url>
+        </pluginRepository>
         <pluginRepository>
             <id>vaadin-snapshots</id>
             <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
         </pluginRepository>
     </pluginRepositories>
 
@@ -70,9 +72,9 @@
             <dependency>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-bom</artifactId>
-                <version>${vaadin.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+                <version>${vaadin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -85,45 +87,47 @@
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-push</artifactId>
+            <artifactId>vaadin-core</artifactId>
+            <exclusions>
+                <!-- Webjars are only needed when running in Vaadin 13 compatibility mode in V14.
+                     Your add-on can support npm in the same version mode and V13 compatiblity mode at the same time,
+                     or with separate versions. Any V13 version should work with the compatibility mode in V14. -->
+                <exclusion>
+                    <groupId>com.vaadin.webjar</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.webjars.bowergithub.insites</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.webjars.bowergithub.polymer</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.webjars.bowergithub.polymerelements</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.webjars.bowergithub.vaadin</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.webjars.bowergithub.webcomponents</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-client-compiler</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-compatibility-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-compatibility-shared</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-compatibility-client</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-themes</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-compatibility-themes</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.vaadin</groupId>
-            <artifactId>viritin</artifactId>
-            <!-- <version>1.61v8-SNAPSHOT</version> -->
-            <version>2.0.alpha1</version>
+            <artifactId>flow-viritin</artifactId>
+            <version>${flow-viritin.version}</version>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
-            <scope>provided</scope>
+            <groupId>com.github.appreciated</groupId>
+            <artifactId>vaadin-css-grid</artifactId>
+            <version>2.0.0.beta3</version>
         </dependency>
     </dependencies>
 
@@ -133,82 +137,35 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                    <filesets>
-                        <fileset>
-                            <!-- Clean-up widgetset required for "inplace" compilation -->
-                            <directory>${basedir}/src/main/webapp/VAADIN/widgetsets</directory>
-                        </fileset>
-                        <fileset>
-                            <!-- Clean-up gwt cache -->
-                            <directory>${basedir}/src/main/webapp/VAADIN/gwt-unitCache</directory>
-                        </fileset>
-                    </filesets>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <packagingExcludes>
-                        **/VAADIN/gwt-unitCache/**,
-                        **/VAADIN/widgetsets/WEB-INF/**,
-                        **/WEB-INF/lib/servlet-api-*.jar,
-                        **/WEB-INF/lib/vaadin-client-*.jar,
-                        **/WEB-INF/lib/jetty-*.jar,
-                        **/WEB-INF/lib/ant-*.jar,
-                        **/WEB-INF/classes/gwt-unitCache/**,
-                        **/WEB-INF/classes/themes/**,
-                        **/WEB-INF/classes/widgetsets/**
-                    </packagingExcludes>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-maven-plugin</artifactId>
-                <version>${vaadin.plugin.version}</version>
-                <configuration>
-                    <extraJvmArgs>-Xmx2048M -Xss1024k</extraJvmArgs>
-                    <webappDirectory>${basedir}/src/main/webapp/VAADIN/widgetsets</webappDirectory>
-                    <hostedWebapp>${basedir}/src/main/webapp/VAADIN/widgetsets</hostedWebapp>
-                    <noServer>true</noServer>
-                    <persistentunitcachedir>${basedir}/target/tmp/gwt-unitCache</persistentunitcachedir>
-                    <compileReport>true</compileReport>
-                    <!-- <strict>true</strict> -->
-                    <runTarget>http://localhost:8080/</runTarget>
-                </configuration>
+                <version>${vaadin.version}</version>
                 <executions>
-                    <!-- You are free to mark this as permanently ignored in Eclipse -->
                     <execution>
-                        <configuration>
-                            <!-- if you don't specify any modules, the plugin will find them -->
-                        </configuration>
                         <goals>
-                            <goal>resources</goal>
-                            <goal>update-widgetset</goal>
-                            <goal>compile</goal>
+                            <goal>prepare-frontend</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
-
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.2.3.v20140905</version>
+                <version>${jetty-maven-plugin.version}</version>
                 <configuration>
                     <stopKey>STOP</stopKey>
                     <stopPort>8005</stopPort>
@@ -220,7 +177,7 @@
             <plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
-                <version>2.11</version>
+                <version>${license-maven-plugin.version}</version>
                 <configuration>
                     <header>src/license/APACHE-2.txt</header>
                     <properties>
@@ -236,42 +193,38 @@
 
         </plugins>
 
-        <pluginManagement>
-            <plugins>
-                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-                <plugin>
-                    <groupId>org.eclipse.m2e</groupId>
-                    <artifactId>lifecycle-mapping</artifactId>
-                    <version>1.0.0</version>
-                    <configuration>
-                        <lifecycleMappingMetadata>
-                            <pluginExecutions>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>com.vaadin</groupId>
-                                        <artifactId>vaadin-maven-plugin</artifactId>
-                                        <versionRange>
-                                            [${vaadin.plugin.version},)
-                                        </versionRange>
-                                        <goals>
-                                            <goal>resources</goal>
-                                            <goal>update-widgetset</goal>
-                                            <goal>compile</goal>
-                                            <goal>update-theme</goal>
-                                            <goal>compile-theme</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore></ignore>
-                                    </action>
-                                </pluginExecution>
-                            </pluginExecutions>
-                        </lifecycleMappingMetadata>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
 
     </build>
+
+    <profiles>
+        <profile>
+            <id>production</id>
+            <properties>
+                <vaadin.productionMode>true</vaadin.productionMode>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>flow-server-production-mode</artifactId>
+                </dependency>
+            </dependencies>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.vaadin</groupId>
+                        <artifactId>vaadin-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>build-frontend</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

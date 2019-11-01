@@ -1,12 +1,12 @@
 /**
  * Copyright (C) 2016-2017 Marco Collovati (mcollovati@gmail.com)
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,144 +15,152 @@
  */
 package org.vaadin.spinkit.demo;
 
-import com.vaadin.annotations.Theme;
-import com.vaadin.annotations.Title;
-import com.vaadin.annotations.VaadinServletConfiguration;
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Alignment;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.GridLayout;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.TabSheet;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.themes.ValoTheme;
-import com.vaadin.v7.data.util.converter.StringToEnumConverter;
-import com.vaadin.v7.ui.ComboBox;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import com.github.appreciated.css.grid.sizes.Length;
+import com.github.appreciated.css.grid.sizes.Repeat;
+import com.github.appreciated.layout.FlexibleGridLayout;
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+import org.vaadin.firitin.components.RichText;
+import org.vaadin.firitin.components.orderedlayout.VHorizontalLayout;
+import org.vaadin.firitin.components.orderedlayout.VVerticalLayout;
+import org.vaadin.firitin.layouts.VTabSheet;
 import org.vaadin.spinkit.Spinner;
-import org.vaadin.spinkit.SpinnerLabel;
-import org.vaadin.spinkit.shared.SpinnerSize;
-import org.vaadin.spinkit.shared.SpinnerType;
-import org.vaadin.viritin.label.RichText;
-import org.vaadin.viritin.layouts.MVerticalLayout;
-
-import javax.servlet.annotation.WebServlet;
-import java.util.Arrays;
-
-@Theme("demo")
-@Title("Vaadin Spinkit Add-on Demo")
-@SuppressWarnings("serial")
-public class DemoUI extends UI {
+import org.vaadin.spinkit.SpinnerSize;
+import org.vaadin.spinkit.SpinnerType;
 
 
-    @WebServlet(value = "/*", asyncSupported = true)
-    @VaadinServletConfiguration(productionMode = false, ui = DemoUI.class, widgetset = "org.vaadin.spinkit.demo.DemoWidgetSet")
-    public static class Servlet extends VaadinServlet {
-    }
+@PageTitle("Vaadin Spinkit Add-on Demo")
+@Route("")
+@CssImport("./styles/styles.css")
+public class DemoUI extends Div {
 
-    @Override
-    protected void init(VaadinRequest request) {
-
-
-
-        TabSheet tabSheet = new TabSheet();
-        tabSheet.setSizeFull();
-        tabSheet.addStyleName(ValoTheme.TABSHEET_CENTERED_TABS);
-        tabSheet.addTab(spinnersContainer()).setCaption("Spinners");
-        tabSheet.addTab(spinnerSizesContainer()).setCaption("Sizes");
-        tabSheet.addTab(spinnersContainer("greenspin")).setCaption("Themed Spinners");
-        tabSheet.addTab(new RichText().withMarkDown(getClass().getResourceAsStream("source.md"))).setCaption("Source code");
-        //layout.addComponent(tabSheet);
-        //layout.expand(tabSheet);
+    public DemoUI() {
+        VTabSheet tabSheet = new VTabSheet();
+        tabSheet.setFlexGrowForEnclosedTabs(1);
+        tabSheet.addTab("Spinners", spinnersContainer());
+        tabSheet.addTab("Sizes", spinnerSizesContainer());
+        tabSheet.addTab("Source code", new RichText().withMarkDown(getClass().getResourceAsStream("source.md")));
         RichText info = new RichText()
             .withMarkDown(getClass().getResourceAsStream("about.md"));
 
 
-        MVerticalLayout layout = new MVerticalLayout()
+        VVerticalLayout layout = new VVerticalLayout()
             .withMargin(true)
-            .with(info).expand(tabSheet)
+            .withComponent(info).addExpanded(tabSheet)
             .withFullHeight().withFullWidth();
 
-        //layout.setExpandRatio(info, 1);
-        //layout.setExpandRatio(tabSheet, 4);
-
-        setContent(layout);
+        add(layout);
     }
 
     private Component spinnersContainer() {
-        return spinnersContainer(null);
-    }
+        List<Spinner> spinners = Stream.of(SpinnerType.values()).filter(t -> !t.isAlias())
+            .map(DemoUI::createSpinner)
+            .collect(Collectors.toList());
 
-    private Component spinnersContainer(String primaryStyleName) {
-        int types = SpinnerType.values().length;
-        GridLayout spinners = new GridLayout(4, (types / 4 + types % 4));
-        spinners.setSizeFull();
-        spinners.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
-        spinners.setSpacing(true);
-        spinners.setWidth(100, Unit.PERCENTAGE);
-        StringToEnumConverter converter = new StringToEnumConverter();
-        for (SpinnerType type : SpinnerType.values()) {
-            Spinner spinner = new Spinner(type);
-            spinner.setCaption(converter.convertToPresentation(type, String.class, getLocale()));
-            if (primaryStyleName != null) {
-                spinner.setPrimaryStyleName(primaryStyleName);
-            }
-            spinners.addComponent(spinner);
-        }
-        return spinners;
+        FlexibleGridLayout spinnersContainer = new FlexibleGridLayout()
+            .withColumns(Repeat.RepeatMode.AUTO_FILL, new Length("25%"))
+            .withPadding(true)
+            .withSpacing(true)
+            .withItems(spinners.stream().map(s -> spinnerWithName(s, Spinner::getType)).toArray(Component[]::new));
+
+        TextField color = new TextField("Color (--sk-color)", "#333");
+        color.addValueChangeListener(e -> spinners.forEach(s -> s.setColor(e.getValue())));
+
+        ComboBox<String> theme = new ComboBox<>("Css class", "", "green", "red");
+        theme.setPreventInvalidInput(true);
+        theme.addValueChangeListener(e -> spinners.forEach(s -> {
+            Optional.ofNullable(e.getOldValue()).ifPresent(css -> s.removeClassName("sk-demo-" + css));
+            s.addClassName("sk-demo-" + e.getValue());
+        }));
+        VerticalLayout commands = new VerticalLayout();
+        commands.setAlignItems(FlexComponent.Alignment.START);
+        commands.setMargin(false);
+        commands.setSpacing(true);
+        commands.add(color, theme);
+        commands.setSizeUndefined();
+
+        VHorizontalLayout layout = new VHorizontalLayout(commands, spinnersContainer);
+        layout.setSizeFull();
+        layout.setMargin(true);
+        layout.setSpacing(true);
+        layout.setFlexGrow(1, spinnersContainer);
+        return layout;
     }
 
     private Component spinnerSizesContainer() {
-        int types = SpinnerSize.values().length;
-        GridLayout spinners = new GridLayout(4, (types / 4 + types % 4));
-        spinners.setSizeFull();
-        spinners.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
-        spinners.setSpacing(true);
 
-        ComboBox selector = new ComboBox("Select spinner type", Arrays.asList(SpinnerType.values()));
-        selector.setNullSelectionAllowed(false);
-        selector.setPageLength(0);
+        List<Spinner> spinners = EnumSet.complementOf(EnumSet.of(SpinnerSize.DEFAULT)).stream()
+            .map(size -> {
+                Spinner s = createSpinner(SpinnerType.PLANE);
+                s.setSize(size);
+                s.setTitle(size.name());
+                return s;
+            }).collect(Collectors.toList());
+
+        List<SpinnerType> spinnerTypes = Stream.of(SpinnerType.values())
+            .filter(t -> !t.isAlias()).collect(Collectors.toList());
+
+        ComboBox<SpinnerType> selector = new ComboBox<>("Select spinner type", spinnerTypes);
+        selector.setPreventInvalidInput(true);
         selector.setValue(SpinnerType.ROTATING_PLANE);
-        selector.addValueChangeListener(e -> {
-            for (Component c : spinners) {
-                if (c instanceof Spinner) {
-                    ((Spinner) c).setType((SpinnerType) selector.getValue());
-                }
-            }
-        });
+        selector.addValueChangeListener(e -> spinners.forEach(s -> s.setType(selector.getValue())));
 
-        StringToEnumConverter converter = new StringToEnumConverter();
-        for (SpinnerSize size : SpinnerSize.values()) {
-            Spinner spinner = new Spinner(SpinnerType.ROTATING_PLANE);
+        TextField baseSize = new TextField("Base size (--sk-size)", "40px");
+        baseSize.addValueChangeListener(e -> spinners.forEach(s -> s.setBaseSize(e.getValue())));
+
+        FlexibleGridLayout spinnersContainer = new FlexibleGridLayout()
+            .withColumns(Repeat.RepeatMode.AUTO_FILL, new Length("25%"))
+            .withPadding(true)
+            .withSpacing(true)
+            .withItems(spinners.stream().map(s -> spinnerWithName(s, Spinner::getSize)).toArray(Component[]::new));
+
+        for (SpinnerSize size : EnumSet.complementOf(EnumSet.of(SpinnerSize.DEFAULT))) {
+            Spinner spinner = new Spinner(SpinnerType.PLANE);
             spinner.setSize(size);
-            spinner.setCaption(converter.convertToPresentation(size, String.class, getLocale()));
-            spinners.addComponent(spinner);
+            spinner.setTitle(size.name());
+            spinners.add(spinner);
         }
 
-        VerticalLayout l = new VerticalLayout();
-        l.setDefaultComponentAlignment(Alignment.TOP_CENTER);
-        l.setSizeFull();
-        l.setMargin(false);
-        l.setSpacing(true);
-        l.addComponents(selector, spinners);
-        l.setExpandRatio(spinners, 1);
-        return l;
+        VerticalLayout commands = new VerticalLayout();
+        commands.setSizeUndefined();
+        commands.setAlignItems(FlexComponent.Alignment.START);
+        commands.setMargin(false);
+        commands.setSpacing(true);
+        commands.add(selector, baseSize);
+
+        VHorizontalLayout layout = new VHorizontalLayout(commands, spinnersContainer);
+        layout.setSizeFull();
+        layout.setMargin(true);
+        layout.setSpacing(true);
+        layout.setFlexGrow(1, spinnersContainer);
+        return layout;
     }
 
 
-    private HorizontalLayout labelSpinnersContainer() {
-        HorizontalLayout spinners = new HorizontalLayout();
-        spinners.setWidth(100, Unit.PERCENTAGE);
-        StringToEnumConverter converter = new StringToEnumConverter();
-        for (SpinnerType type : SpinnerType.values()) {
-            SpinnerLabel spinner = new SpinnerLabel(type);
-            spinner.setValue("Text with spinner");
-            spinner.setCaption(converter.convertToPresentation(type, String.class, getLocale()));
-            spinners.addComponent(spinner);
-        }
-        return spinners;
+    private static Spinner createSpinner(SpinnerType t) {
+        Spinner spinner = new Spinner(t);
+        spinner.setTitle(t.name());
+        spinner.setCentered(true);
+        return spinner;
     }
 
-
+    private static VVerticalLayout spinnerWithName(Spinner s, Function<Spinner, Enum<?>> textFn) {
+        return new VVerticalLayout().withComponent(s)
+            .withComponent(new Span(textFn.apply(s).toString()), FlexComponent.Alignment.CENTER);
+    }
 }
