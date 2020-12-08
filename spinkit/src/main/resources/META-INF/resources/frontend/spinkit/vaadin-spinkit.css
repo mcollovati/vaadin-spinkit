@@ -1,5 +1,9 @@
 :root {
     --sk-base-size: var(--sk-size);
+    display: inline-block;
+}
+spinkit {
+    display: inline-block;
 }
 
 .sk-xs {

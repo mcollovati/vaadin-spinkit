@@ -1,6 +1,7 @@
 target/
 **/VAADIN/widgetsets/
 node_modules/
+node/
 package.json
 package-lock.json
 webpack.config.js

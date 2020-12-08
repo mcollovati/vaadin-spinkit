@@ -26,8 +26,10 @@ import com.github.appreciated.css.grid.sizes.Length;
 import com.github.appreciated.css.grid.sizes.Repeat;
 import com.github.appreciated.layout.FlexibleGridLayout;
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
@@ -55,6 +57,8 @@ public class DemoUI extends Div {
         tabSheet.addTab("Spinners", spinnersContainer());
         tabSheet.addTab("Sizes", spinnerSizesContainer());
         tabSheet.addTab("Source code", new RichText().withMarkDown(getClass().getResourceAsStream("source.md")));
+        tabSheet.addTab("Dialog", new Button("Open dialog", ev -> openDialog()));
+
         RichText info = new RichText()
             .withMarkDown(getClass().getResourceAsStream("about.md"));
 
@@ -65,6 +69,16 @@ public class DemoUI extends Div {
             .withFullHeight().withFullWidth();
 
         add(layout);
+    }
+
+    private void openDialog() {
+        Dialog dialog = new Dialog(
+            new VVerticalLayout(createSpinner(SpinnerType.CIRCLE).extraLarge())
+                .withJustifyContentMode(FlexComponent.JustifyContentMode.CENTER)
+                .withSize("300px", "300px"));
+        dialog.setCloseOnEsc(true);
+        dialog.setCloseOnOutsideClick(true);
+        dialog.open();
     }
 
     private Component spinnersContainer() {
