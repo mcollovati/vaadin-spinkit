@@ -155,6 +155,28 @@ public class Spinner extends Div {
         return hasClassName("sk-center");
     }
 
+    /**
+     * Defines if the spinner should have display of type inline-block.
+     *
+     * @param displayBlock true if the spinner should have display of type inline-block.
+     */
+    public void setDisplayBlock(boolean displayBlock) {
+        if (displayBlock) {
+            addClassName("sk-display-block");
+        } else {
+            removeClassName("sk-display-block");
+        }
+    }
+
+    /**
+     * Indicated if the spinner has display of type inline-block.
+     *
+     * @return true if the spinner has display of type inline-block, otherwise false
+     */
+    public boolean isDisplayBlock() {
+        return hasClassName("sk-display-block");
+    }
+
     // Fluent
 
     /**
@@ -266,6 +288,16 @@ public class Spinner extends Div {
      */
     public Spinner centered() {
         setCentered(true);
+        return this;
+    }
+
+    /**
+     * Sets display to inline-block for the spinner.
+     *
+     * @return the spinner instance
+     */
+    public Spinner withDisplayBlock() {
+        setDisplayBlock(true);
         return this;
     }
 }

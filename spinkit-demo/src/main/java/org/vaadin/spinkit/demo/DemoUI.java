@@ -73,7 +73,8 @@ public class DemoUI extends Div {
 
     private void openDialog() {
         Dialog dialog = new Dialog(
-            new VVerticalLayout(createSpinner(SpinnerType.CIRCLE).extraLarge())
+            new VVerticalLayout(createSpinner(SpinnerType.CIRCLE)
+                .extraLarge().withDisplayBlock())
                 .withJustifyContentMode(FlexComponent.JustifyContentMode.CENTER)
                 .withSize("300px", "300px"));
         dialog.setCloseOnEsc(true);

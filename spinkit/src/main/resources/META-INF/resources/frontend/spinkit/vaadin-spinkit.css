@@ -2,7 +2,7 @@
     --sk-base-size: var(--sk-size);
     display: inline-block;
 }
-spinkit {
+.sk-display-block {
     display: inline-block;
 }
 
