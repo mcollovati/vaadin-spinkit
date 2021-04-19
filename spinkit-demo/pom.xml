@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>14.0.11</vaadin.version>
+        <vaadin.version>19.0.5</vaadin.version>
         <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
         <flow-viritin.version>0.3.2</flow-viritin.version>
 
