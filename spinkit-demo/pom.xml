@@ -6,7 +6,7 @@
     <groupId>org.vaadin</groupId>
     <artifactId>spinkit-demo</artifactId>
     <packaging>war</packaging>
-    <version>3.0-SNAPSHOT</version>
+    <version>3.0.0</version>
     <name>Spinkit Add-on Demo</name>
 
     <properties>
