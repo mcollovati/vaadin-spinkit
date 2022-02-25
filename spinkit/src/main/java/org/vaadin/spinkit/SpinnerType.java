@@ -20,9 +20,6 @@ import java.util.stream.Stream;
 
 import com.vaadin.flow.component.html.Div;
 
-/**
- * Created by marco on 16/09/15.
- */
 public enum SpinnerType {
 
 
@@ -56,7 +53,8 @@ public enum SpinnerType {
     private final boolean alias;
 
     SpinnerType(String cssClass) {
-        this(cssClass, div -> {});
+        this(cssClass, div -> {
+        });
     }
 
     SpinnerType(String cssClass, Consumer<Div> htmlBuilder) {

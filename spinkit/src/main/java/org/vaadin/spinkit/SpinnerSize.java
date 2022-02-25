@@ -15,9 +15,6 @@
  */
 package org.vaadin.spinkit;
 
-/**
- * Created by marco on 04/04/16.
- */
 public enum SpinnerSize {
     /**
      * Extra Small size

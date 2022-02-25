@@ -32,10 +32,7 @@ import com.vaadin.flow.component.html.Div;
 public class Spinner extends Div {
 
     static final String SK_BASE_SIZE = "--sk-base-size";
-    static final String SK_SIZE = "--sk-size";
     static final String SK_COLOR = "--sk-color";
-    static final String DEFAULT_SK_SIZE_VALUE = "var(--sk-size)";
-    private static final String SK_BASE_SIZE_VAR = String.format("var(%s)", SK_BASE_SIZE);
 
     /**
      * Creates a new spinner for the given type
@@ -56,7 +53,9 @@ public class Spinner extends Div {
     public void setType(SpinnerType type) {
         SpinnerType old = getType();
         if (type != old) {
-            if (old != null) { removeClassName(old.getClassName()); }
+            if (old != null) {
+                removeClassName(old.getClassName());
+            }
             getElement().setProperty("spinner-type", type.name());
             type.apply(this);
         }
@@ -221,6 +220,7 @@ public class Spinner extends Div {
         setSize(size);
         return this;
     }
+
     /**
      * Sets the spinner size to extra small
      *
