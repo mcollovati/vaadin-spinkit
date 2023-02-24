@@ -6,19 +6,18 @@
     <groupId>org.vaadin</groupId>
     <artifactId>spinkit-demo</artifactId>
     <packaging>war</packaging>
-    <version>3.0.0</version>
+    <version>4.0-SNAPSHOT</version>
     <name>Spinkit Add-on Demo</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>22.0.6</vaadin.version>
+        <vaadin.version>24.0.0.beta4</vaadin.version>
         <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
-        <flow-viritin.version>0.8.2</flow-viritin.version>
+        <viritin.version>2.0.0-alpha1</viritin.version>
 
         <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
         <license-maven-plugin.version>4.1</license-maven-plugin.version>
-        <jetty-maven-plugin.version>9.4.45.v20220203
-        </jetty-maven-plugin.version>
+        <jetty-maven-plugin.version>11.0.13</jetty-maven-plugin.version>
         <maven-war-plugin.version>3.3.2</maven-war-plugin.version>
         <vaadin-css-grid.version>2.0.0</vaadin-css-grid.version>
     </properties>
@@ -98,14 +97,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.vaadin</groupId>
-            <artifactId>flow-viritin</artifactId>
-            <version>${flow-viritin.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.appreciated</groupId>
-            <artifactId>vaadin-css-grid</artifactId>
-            <version>${vaadin-css-grid.version}</version>
+            <groupId>in.virit</groupId>
+            <artifactId>viritin</artifactId>
+            <version>${viritin.version}</version>
         </dependency>
     </dependencies>
 
