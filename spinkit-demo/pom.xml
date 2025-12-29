@@ -11,22 +11,22 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>24.0.0.beta4</vaadin.version>
+        <vaadin.version>25.0.2</vaadin.version>
         <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
-        <viritin.version>2.0.0-alpha1</viritin.version>
 
-        <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
-        <license-maven-plugin.version>4.1</license-maven-plugin.version>
-        <jetty-maven-plugin.version>11.0.13</jetty-maven-plugin.version>
-        <maven-war-plugin.version>3.3.2</maven-war-plugin.version>
-        <vaadin-css-grid.version>2.0.0</vaadin-css-grid.version>
+        <viritin.version>3.1.0</viritin.version>
+
+        <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
+        <license-maven-plugin.version>5.0.0</license-maven-plugin.version>
+        <jetty-maven-plugin.version>12.1.5</jetty-maven-plugin.version>
+        <maven-war-plugin.version>3.5.1</maven-war-plugin.version>
     </properties>
 
     <organization>
         <name>Marco Collovati</name>
         <url>https://github.com/mcollovati</url>
     </organization>
-    <inceptionYear>2016-2022</inceptionYear>
+    <inceptionYear>2016-2026</inceptionYear>
     <issueManagement>
         <system>GitHub</system>
         <url>https://github.com/mcollovati/vaadin-spinkit/issues</url>
@@ -49,27 +49,12 @@
             <id>Vaadin prereleases</id>
             <url>https://maven.vaadin.com/vaadin-prereleases</url>
         </repository>
-        <repository>
-            <id>vaadin-snapshots</id>
-            <url>
-                https://oss.sonatype.org/content/repositories/vaadin-snapshots/
-            </url>
-        </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
             <id>Vaadin prereleases</id>
             <url>https://maven.vaadin.com/vaadin-prereleases</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>vaadin-snapshots</id>
-            <url>
-                https://oss.sonatype.org/content/repositories/vaadin-snapshots/
-            </url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
         </pluginRepository>
     </pluginRepositories>
 
@@ -129,8 +114,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -140,7 +125,7 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>prepare-frontend</goal>
+                            <goal>build-frontend</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -153,8 +138,8 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
+                <groupId>org.eclipse.jetty.ee10</groupId>
+                <artifactId>jetty-ee10-maven-plugin</artifactId>
                 <version>${jetty-maven-plugin.version}</version>
                 <configuration>
                     <stopKey>STOP</stopKey>
@@ -188,32 +173,13 @@
 
     <profiles>
         <profile>
-            <id>production</id>
-            <properties>
-                <vaadin.productionMode>true</vaadin.productionMode>
-            </properties>
+            <id>development</id>
             <dependencies>
                 <dependency>
                     <groupId>com.vaadin</groupId>
-                    <artifactId>flow-server-production-mode</artifactId>
+                    <artifactId>vaadin-dev</artifactId>
                 </dependency>
             </dependencies>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.vaadin</groupId>
-                        <artifactId>vaadin-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>build-frontend</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
         </profile>
     </profiles>
 

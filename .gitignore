@@ -6,3 +6,5 @@ package.json
 package-lock.json
 webpack.config.js
 webpack.generated.js
+spinkit-demo/src/main/bundles/
+spinkit-demo/src/main/frontend/

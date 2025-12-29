@@ -19,6 +19,7 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.dependency.StyleSheet;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Span;
@@ -28,6 +29,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.theme.lumo.Lumo;
 import org.vaadin.firitin.components.RichText;
 import org.vaadin.firitin.components.orderedlayout.VHorizontalLayout;
 import org.vaadin.firitin.components.orderedlayout.VVerticalLayout;
@@ -46,26 +48,25 @@ import java.util.stream.Stream;
 
 @PageTitle("Vaadin Spinkit Add-on Demo")
 @Route("")
-@CssImport("./styles/styles.css")
-public class DemoUI extends Div {
+@StyleSheet(Lumo.STYLESHEET)
+@StyleSheet("styles.css")
+public class DemoUI extends VerticalLayout {
 
     public DemoUI() {
+        setSizeFull();
+
+        RichText info = new RichText()
+                .withMarkDown(getClass().getResourceAsStream("about.md"));
+
         VTabSheet tabSheet = new VTabSheet();
         tabSheet.addTab("Spinners", spinnersContainer());
         tabSheet.addTab("Sizes", spinnerSizesContainer());
         tabSheet.addTab("Source code", new RichText().withMarkDown(getClass().getResourceAsStream("source.md")));
         tabSheet.addTab("Dialog", new Button("Open dialog", ev -> openDialog()));
+        tabSheet.setSizeFull();
 
-        RichText info = new RichText()
-                .withMarkDown(getClass().getResourceAsStream("about.md"));
-
-
-        VVerticalLayout layout = new VVerticalLayout()
-                .withMargin(true)
-                .withComponent(info).addExpanded(tabSheet)
-                .withFullHeight().withFullWidth();
-
-        add(layout);
+        add(info);
+        addAndExpand(tabSheet);
     }
 
     private void openDialog() {
@@ -103,7 +104,6 @@ public class DemoUI extends Div {
 
         VHorizontalLayout layout = new VHorizontalLayout(commands, spinnersContainer);
         layout.setSizeFull();
-        layout.setMargin(true);
         layout.setSpacing(true);
         layout.setFlexGrow(1, spinnersContainer);
         return layout;
@@ -147,7 +147,6 @@ public class DemoUI extends Div {
 
         VHorizontalLayout layout = new VHorizontalLayout(commands, spinnersContainer);
         layout.setSizeFull();
-        layout.setMargin(true);
         layout.setSpacing(true);
         layout.setFlexGrow(1, spinnersContainer);
         return layout;
