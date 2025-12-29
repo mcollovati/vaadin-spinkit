@@ -44,10 +44,12 @@ To start the demo:
 git clone https://github.com/mcollovati/vaadin-spinkit.git
 mvn clean install
 cd spinkit-demo
-mvn jetty:run
+mvn jetty:run -Pdevelopment
 ```
 
 To see the demo, navigate to http://localhost:8080/
+
+To run the demo in production mode run `mvn jett:run-war`.
 
 ## Issue tracking
 
